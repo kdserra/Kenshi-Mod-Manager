@@ -18,17 +18,21 @@ namespace Kenshi_Mod_Manager
 
         private void ClearModTable(ModEntry modEntry)
         {
-            throw new NotImplementedException();
+            m_ModEntryList.Clear();
+            SyncModTable();
         }
 
-        private bool AddToModTable(ModEntry modEntry)
+        private void AddToModTable(ModEntry modEntry)
         {
-            throw new NotImplementedException();
+            m_ModEntryList.Add(modEntry);
+            SyncModTable();
         }
 
         private bool RemoveFromModTable(ModEntry modEntry)
         {
-            throw new NotImplementedException();
+            bool removed = m_ModEntryList.Remove(modEntry);
+            if (removed) { SyncModTable(); }
+            return removed;
         }
 
         private void SyncModTable()
@@ -38,7 +42,7 @@ namespace Kenshi_Mod_Manager
 
         private void HideReplicaModTableEntry()
         {
-            replicaModInfoTableLayoutPanel.Visible = false;
+            replicaModTableLayoutPanel.Visible = false;
             replicaModCategoryLabel.Visible = false;
             replicaModSourceLabel.Visible = false;
             replicaModStateButton.Visible = false;
