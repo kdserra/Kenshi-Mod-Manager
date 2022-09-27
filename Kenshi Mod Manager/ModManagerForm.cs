@@ -31,7 +31,7 @@ namespace Kenshi_Mod_Manager
             throw new NotImplementedException();
         }
 
-        private void SyncModTable(ModEntry modEntry)
+        private void SyncModTable()
         {
             throw new NotImplementedException();
         }
