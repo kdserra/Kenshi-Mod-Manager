@@ -2,9 +2,9 @@
 
 namespace Kenshi_Mod_Manager
 {
-    public partial class ModManagerForm1 : Form
+    public partial class ModManagerForm : Form
     {
-        public ModManagerForm1()
+        public ModManagerForm()
         {
             InitializeComponent();
             this.Select();

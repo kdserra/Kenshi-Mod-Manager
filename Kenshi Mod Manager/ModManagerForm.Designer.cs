@@ -1,6 +1,6 @@
 ﻿namespace Kenshi_Mod_Manager
 {
-    partial class ModManagerForm1
+    partial class ModManagerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModManagerForm1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModManagerForm));
             this.saveToKenshiButton = new System.Windows.Forms.Button();
             this.orderModsButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
