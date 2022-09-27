@@ -87,10 +87,11 @@
             this.label99 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.replicaModInfoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.replicaModTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.replicaModPictureBox = new System.Windows.Forms.PictureBox();
-            this.modInfoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.replicaModInfoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.replicaModFileNameLabel = new System.Windows.Forms.Label();
             this.replicaModNameLabel = new System.Windows.Forms.Label();
             this.replicaModCategoryLabel = new System.Windows.Forms.Label();
             this.replicaModSourceLabel = new System.Windows.Forms.Label();
@@ -194,7 +195,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.replicaModFileNameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -210,10 +210,10 @@
             this.tableLayoutPanel23.SuspendLayout();
             this.modTableLayoutPanel.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.replicaModInfoTableLayoutPanel.SuspendLayout();
+            this.replicaModTableLayoutPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.replicaModPictureBox)).BeginInit();
-            this.modInfoTableLayoutPanel.SuspendLayout();
+            this.replicaModInfoTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -1102,7 +1102,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.replicaModInfoTableLayoutPanel);
+            this.panel5.Controls.Add(this.replicaModTableLayoutPanel);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 60);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
@@ -1110,20 +1110,20 @@
             this.panel5.Size = new System.Drawing.Size(272, 50);
             this.panel5.TabIndex = 5;
             // 
-            // replicaModInfoTableLayoutPanel
+            // replicaModTableLayoutPanel
             // 
-            this.replicaModInfoTableLayoutPanel.ColumnCount = 2;
-            this.replicaModInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.replicaModInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.replicaModInfoTableLayoutPanel.Controls.Add(this.panel6, 0, 0);
-            this.replicaModInfoTableLayoutPanel.Controls.Add(this.modInfoTableLayoutPanel, 1, 0);
-            this.replicaModInfoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.replicaModInfoTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.replicaModInfoTableLayoutPanel.Name = "replicaModInfoTableLayoutPanel";
-            this.replicaModInfoTableLayoutPanel.RowCount = 1;
-            this.replicaModInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.replicaModInfoTableLayoutPanel.Size = new System.Drawing.Size(272, 50);
-            this.replicaModInfoTableLayoutPanel.TabIndex = 0;
+            this.replicaModTableLayoutPanel.ColumnCount = 2;
+            this.replicaModTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.replicaModTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.replicaModTableLayoutPanel.Controls.Add(this.panel6, 0, 0);
+            this.replicaModTableLayoutPanel.Controls.Add(this.replicaModInfoTableLayoutPanel, 1, 0);
+            this.replicaModTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.replicaModTableLayoutPanel.Name = "replicaModTableLayoutPanel";
+            this.replicaModTableLayoutPanel.RowCount = 1;
+            this.replicaModTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.replicaModTableLayoutPanel.Size = new System.Drawing.Size(272, 50);
+            this.replicaModTableLayoutPanel.TabIndex = 0;
             // 
             // panel6
             // 
@@ -1147,22 +1147,36 @@
             this.replicaModPictureBox.TabIndex = 1;
             this.replicaModPictureBox.TabStop = false;
             // 
-            // modInfoTableLayoutPanel
+            // replicaModInfoTableLayoutPanel
             // 
-            this.modInfoTableLayoutPanel.ColumnCount = 1;
-            this.modInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.modInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.modInfoTableLayoutPanel.Controls.Add(this.replicaModFileNameLabel, 0, 1);
-            this.modInfoTableLayoutPanel.Controls.Add(this.replicaModNameLabel, 0, 0);
-            this.modInfoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.modInfoTableLayoutPanel.Location = new System.Drawing.Point(50, 0);
-            this.modInfoTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.modInfoTableLayoutPanel.Name = "modInfoTableLayoutPanel";
-            this.modInfoTableLayoutPanel.RowCount = 2;
-            this.modInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.modInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.modInfoTableLayoutPanel.Size = new System.Drawing.Size(222, 50);
-            this.modInfoTableLayoutPanel.TabIndex = 1;
+            this.replicaModInfoTableLayoutPanel.ColumnCount = 1;
+            this.replicaModInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.replicaModInfoTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.replicaModInfoTableLayoutPanel.Controls.Add(this.replicaModFileNameLabel, 0, 1);
+            this.replicaModInfoTableLayoutPanel.Controls.Add(this.replicaModNameLabel, 0, 0);
+            this.replicaModInfoTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModInfoTableLayoutPanel.Location = new System.Drawing.Point(50, 0);
+            this.replicaModInfoTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.replicaModInfoTableLayoutPanel.Name = "replicaModInfoTableLayoutPanel";
+            this.replicaModInfoTableLayoutPanel.RowCount = 2;
+            this.replicaModInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.replicaModInfoTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.replicaModInfoTableLayoutPanel.Size = new System.Drawing.Size(222, 50);
+            this.replicaModInfoTableLayoutPanel.TabIndex = 1;
+            // 
+            // replicaModFileNameLabel
+            // 
+            this.replicaModFileNameLabel.AutoSize = true;
+            this.replicaModFileNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.replicaModFileNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModFileNameLabel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.replicaModFileNameLabel.ForeColor = System.Drawing.Color.Silver;
+            this.replicaModFileNameLabel.Location = new System.Drawing.Point(0, 25);
+            this.replicaModFileNameLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.replicaModFileNameLabel.Name = "replicaModFileNameLabel";
+            this.replicaModFileNameLabel.Size = new System.Drawing.Size(222, 25);
+            this.replicaModFileNameLabel.TabIndex = 3;
+            this.replicaModFileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // replicaModNameLabel
             // 
@@ -2648,20 +2662,6 @@
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
             // 
-            // replicaModFileNameLabel
-            // 
-            this.replicaModFileNameLabel.AutoSize = true;
-            this.replicaModFileNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.replicaModFileNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.replicaModFileNameLabel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.replicaModFileNameLabel.ForeColor = System.Drawing.Color.Silver;
-            this.replicaModFileNameLabel.Location = new System.Drawing.Point(0, 25);
-            this.replicaModFileNameLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.replicaModFileNameLabel.Name = "replicaModFileNameLabel";
-            this.replicaModFileNameLabel.Size = new System.Drawing.Size(222, 25);
-            this.replicaModFileNameLabel.TabIndex = 3;
-            this.replicaModFileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // ModManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2691,11 +2691,11 @@
             this.modTableLayoutPanel.ResumeLayout(false);
             this.modTableLayoutPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.replicaModInfoTableLayoutPanel.ResumeLayout(false);
+            this.replicaModTableLayoutPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.replicaModPictureBox)).EndInit();
-            this.modInfoTableLayoutPanel.ResumeLayout(false);
-            this.modInfoTableLayoutPanel.PerformLayout();
+            this.replicaModInfoTableLayoutPanel.ResumeLayout(false);
+            this.replicaModInfoTableLayoutPanel.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -2868,9 +2868,9 @@
         private System.Windows.Forms.Label label99;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TableLayoutPanel replicaModInfoTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel replicaModTableLayoutPanel;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TableLayoutPanel modInfoTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel replicaModInfoTableLayoutPanel;
         private System.Windows.Forms.Label replicaModNameLabel;
         private System.Windows.Forms.Label replicaModCategoryLabel;
         private System.Windows.Forms.Label replicaModSourceLabel;
