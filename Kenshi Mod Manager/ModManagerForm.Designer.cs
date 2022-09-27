@@ -79,23 +79,22 @@
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.inactiveModsButton = new System.Windows.Forms.Button();
+            this.activeModsButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.label98 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.label99 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
+            this.replicaModTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
-            this.label102 = new System.Windows.Forms.Label();
-            this.label101 = new System.Windows.Forms.Label();
-            this.label103 = new System.Windows.Forms.Label();
-            this.label104 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
+            this.replicaModPictureBox = new System.Windows.Forms.PictureBox();
+            this.modTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.replicaModNameLabel = new System.Windows.Forms.Label();
+            this.replicaModCategoryLabel = new System.Windows.Forms.Label();
+            this.replicaModSourceLabel = new System.Windows.Forms.Label();
+            this.replicaModStateButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
@@ -185,16 +184,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.profileLabel = new System.Windows.Forms.Label();
+            this.newProfileButton = new System.Windows.Forms.Button();
+            this.saveProfileButton = new System.Windows.Forms.Button();
+            this.loadProfileButton = new System.Windows.Forms.Button();
+            this.importProfileButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.replicaModFileNameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -210,10 +210,10 @@
             this.tableLayoutPanel23.SuspendLayout();
             this.tableLayoutPanel24.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.tableLayoutPanel25.SuspendLayout();
+            this.replicaModTableLayoutPanel.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.tableLayoutPanel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.replicaModPictureBox)).BeginInit();
+            this.modTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -966,8 +966,8 @@
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel23.Controls.Add(this.button9, 0, 0);
-            this.tableLayoutPanel23.Controls.Add(this.button8, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.inactiveModsButton, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.activeModsButton, 0, 0);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel23.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel23.Margin = new System.Windows.Forms.Padding(0);
@@ -977,39 +977,39 @@
             this.tableLayoutPanel23.Size = new System.Drawing.Size(722, 50);
             this.tableLayoutPanel23.TabIndex = 0;
             // 
-            // button9
+            // inactiveModsButton
             // 
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.button9.Location = new System.Drawing.Point(200, 0);
-            this.button9.Margin = new System.Windows.Forms.Padding(0);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(200, 50);
-            this.button9.TabIndex = 41;
-            this.button9.Text = "Inactive Mods";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = true;
+            this.inactiveModsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.inactiveModsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.inactiveModsButton.FlatAppearance.BorderSize = 0;
+            this.inactiveModsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inactiveModsButton.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.inactiveModsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.inactiveModsButton.Location = new System.Drawing.Point(200, 0);
+            this.inactiveModsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.inactiveModsButton.Name = "inactiveModsButton";
+            this.inactiveModsButton.Size = new System.Drawing.Size(200, 50);
+            this.inactiveModsButton.TabIndex = 41;
+            this.inactiveModsButton.Text = "Inactive Mods";
+            this.inactiveModsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.inactiveModsButton.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // activeModsButton
             // 
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.button8.Location = new System.Drawing.Point(0, 0);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(200, 50);
-            this.button8.TabIndex = 40;
-            this.button8.Text = "Active Mods";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = true;
+            this.activeModsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.activeModsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.activeModsButton.FlatAppearance.BorderSize = 0;
+            this.activeModsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.activeModsButton.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.activeModsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.activeModsButton.Location = new System.Drawing.Point(0, 0);
+            this.activeModsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.activeModsButton.Name = "activeModsButton";
+            this.activeModsButton.Size = new System.Drawing.Size(200, 50);
+            this.activeModsButton.TabIndex = 40;
+            this.activeModsButton.Text = "Active Mods";
+            this.activeModsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.activeModsButton.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel24
             // 
@@ -1024,9 +1024,9 @@
             this.tableLayoutPanel24.Controls.Add(this.label99, 2, 0);
             this.tableLayoutPanel24.Controls.Add(this.label100, 3, 0);
             this.tableLayoutPanel24.Controls.Add(this.panel5, 0, 2);
-            this.tableLayoutPanel24.Controls.Add(this.label103, 1, 2);
-            this.tableLayoutPanel24.Controls.Add(this.label104, 2, 2);
-            this.tableLayoutPanel24.Controls.Add(this.button10, 3, 2);
+            this.tableLayoutPanel24.Controls.Add(this.replicaModCategoryLabel, 1, 2);
+            this.tableLayoutPanel24.Controls.Add(this.replicaModSourceLabel, 2, 2);
+            this.tableLayoutPanel24.Controls.Add(this.replicaModStateButton, 3, 2);
             this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel24.Location = new System.Drawing.Point(0, 50);
             this.tableLayoutPanel24.Margin = new System.Windows.Forms.Padding(0);
@@ -1102,7 +1102,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.tableLayoutPanel25);
+            this.panel5.Controls.Add(this.replicaModTableLayoutPanel);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 60);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
@@ -1110,25 +1110,25 @@
             this.panel5.Size = new System.Drawing.Size(272, 50);
             this.panel5.TabIndex = 5;
             // 
-            // tableLayoutPanel25
+            // replicaModTableLayoutPanel
             // 
-            this.tableLayoutPanel25.ColumnCount = 2;
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Controls.Add(this.panel6, 0, 0);
-            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel26, 1, 0);
-            this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel25.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel25.Name = "tableLayoutPanel25";
-            this.tableLayoutPanel25.RowCount = 1;
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(272, 50);
-            this.tableLayoutPanel25.TabIndex = 0;
+            this.replicaModTableLayoutPanel.ColumnCount = 2;
+            this.replicaModTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.replicaModTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.replicaModTableLayoutPanel.Controls.Add(this.panel6, 0, 0);
+            this.replicaModTableLayoutPanel.Controls.Add(this.modTableLayoutPanel, 1, 0);
+            this.replicaModTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.replicaModTableLayoutPanel.Name = "replicaModTableLayoutPanel";
+            this.replicaModTableLayoutPanel.RowCount = 1;
+            this.replicaModTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.replicaModTableLayoutPanel.Size = new System.Drawing.Size(272, 50);
+            this.replicaModTableLayoutPanel.TabIndex = 0;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.panel6.Controls.Add(this.pictureBox7);
+            this.panel6.Controls.Add(this.replicaModPictureBox);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
@@ -1136,103 +1136,89 @@
             this.panel6.Size = new System.Drawing.Size(50, 50);
             this.panel6.TabIndex = 0;
             // 
-            // pictureBox7
+            // replicaModPictureBox
             // 
-            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 1;
-            this.pictureBox7.TabStop = false;
+            this.replicaModPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.replicaModPictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.replicaModPictureBox.Name = "replicaModPictureBox";
+            this.replicaModPictureBox.Size = new System.Drawing.Size(50, 50);
+            this.replicaModPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.replicaModPictureBox.TabIndex = 1;
+            this.replicaModPictureBox.TabStop = false;
             // 
-            // tableLayoutPanel26
+            // modTableLayoutPanel
             // 
-            this.tableLayoutPanel26.ColumnCount = 1;
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel26.Controls.Add(this.label102, 0, 1);
-            this.tableLayoutPanel26.Controls.Add(this.label101, 0, 0);
-            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(50, 0);
-            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
-            this.tableLayoutPanel26.RowCount = 2;
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(222, 50);
-            this.tableLayoutPanel26.TabIndex = 1;
+            this.modTableLayoutPanel.ColumnCount = 1;
+            this.modTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.modTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.modTableLayoutPanel.Controls.Add(this.replicaModFileNameLabel, 0, 1);
+            this.modTableLayoutPanel.Controls.Add(this.replicaModNameLabel, 0, 0);
+            this.modTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.modTableLayoutPanel.Location = new System.Drawing.Point(50, 0);
+            this.modTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.modTableLayoutPanel.Name = "modTableLayoutPanel";
+            this.modTableLayoutPanel.RowCount = 2;
+            this.modTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.modTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.modTableLayoutPanel.Size = new System.Drawing.Size(222, 50);
+            this.modTableLayoutPanel.TabIndex = 1;
             // 
-            // label102
+            // replicaModNameLabel
             // 
-            this.label102.AutoSize = true;
-            this.label102.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label102.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label102.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label102.ForeColor = System.Drawing.Color.Silver;
-            this.label102.Location = new System.Drawing.Point(0, 25);
-            this.label102.Margin = new System.Windows.Forms.Padding(0);
-            this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(222, 25);
-            this.label102.TabIndex = 3;
-            this.label102.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.replicaModNameLabel.AutoSize = true;
+            this.replicaModNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.replicaModNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModNameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.replicaModNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.replicaModNameLabel.Location = new System.Drawing.Point(0, 0);
+            this.replicaModNameLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.replicaModNameLabel.Name = "replicaModNameLabel";
+            this.replicaModNameLabel.Size = new System.Drawing.Size(222, 25);
+            this.replicaModNameLabel.TabIndex = 2;
+            this.replicaModNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label101
+            // replicaModCategoryLabel
             // 
-            this.label101.AutoSize = true;
-            this.label101.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label101.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label101.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label101.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label101.Location = new System.Drawing.Point(0, 0);
-            this.label101.Margin = new System.Windows.Forms.Padding(0);
-            this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(222, 25);
-            this.label101.TabIndex = 2;
-            this.label101.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.replicaModCategoryLabel.AutoSize = true;
+            this.replicaModCategoryLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.replicaModCategoryLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModCategoryLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.replicaModCategoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.replicaModCategoryLabel.Location = new System.Drawing.Point(272, 60);
+            this.replicaModCategoryLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.replicaModCategoryLabel.Name = "replicaModCategoryLabel";
+            this.replicaModCategoryLabel.Size = new System.Drawing.Size(250, 50);
+            this.replicaModCategoryLabel.TabIndex = 6;
+            this.replicaModCategoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label103
+            // replicaModSourceLabel
             // 
-            this.label103.AutoSize = true;
-            this.label103.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label103.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label103.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label103.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label103.Location = new System.Drawing.Point(272, 60);
-            this.label103.Margin = new System.Windows.Forms.Padding(0);
-            this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(250, 50);
-            this.label103.TabIndex = 6;
-            this.label103.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.replicaModSourceLabel.AutoSize = true;
+            this.replicaModSourceLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.replicaModSourceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModSourceLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.replicaModSourceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.replicaModSourceLabel.Location = new System.Drawing.Point(522, 60);
+            this.replicaModSourceLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.replicaModSourceLabel.Name = "replicaModSourceLabel";
+            this.replicaModSourceLabel.Size = new System.Drawing.Size(100, 50);
+            this.replicaModSourceLabel.TabIndex = 7;
+            this.replicaModSourceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label104
+            // replicaModStateButton
             // 
-            this.label104.AutoSize = true;
-            this.label104.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label104.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label104.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label104.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label104.Location = new System.Drawing.Point(522, 60);
-            this.label104.Margin = new System.Windows.Forms.Padding(0);
-            this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(100, 50);
-            this.label104.TabIndex = 7;
-            this.label104.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button10
-            // 
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.button10.Location = new System.Drawing.Point(622, 60);
-            this.button10.Margin = new System.Windows.Forms.Padding(0);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(100, 50);
-            this.button10.TabIndex = 8;
-            this.button10.UseVisualStyleBackColor = true;
+            this.replicaModStateButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModStateButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.replicaModStateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.replicaModStateButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.replicaModStateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.replicaModStateButton.Location = new System.Drawing.Point(622, 60);
+            this.replicaModStateButton.Margin = new System.Windows.Forms.Padding(0);
+            this.replicaModStateButton.Name = "replicaModStateButton";
+            this.replicaModStateButton.Size = new System.Drawing.Size(100, 50);
+            this.replicaModStateButton.TabIndex = 8;
+            this.replicaModStateButton.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel9
             // 
@@ -2519,7 +2505,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.settingsButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
@@ -2527,27 +2513,27 @@
             this.panel2.Size = new System.Drawing.Size(451, 40);
             this.panel2.TabIndex = 0;
             // 
-            // button1
+            // settingsButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(257, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = false;
+            this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.settingsButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("settingsButton.BackgroundImage")));
+            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Location = new System.Drawing.Point(257, 0);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(40, 40);
+            this.settingsButton.TabIndex = 1;
+            this.settingsButton.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.label23);
-            this.panel7.Controls.Add(this.button14);
-            this.panel7.Controls.Add(this.button13);
-            this.panel7.Controls.Add(this.button12);
-            this.panel7.Controls.Add(this.button11);
+            this.panel7.Controls.Add(this.profileLabel);
+            this.panel7.Controls.Add(this.newProfileButton);
+            this.panel7.Controls.Add(this.saveProfileButton);
+            this.panel7.Controls.Add(this.loadProfileButton);
+            this.panel7.Controls.Add(this.importProfileButton);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(451, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
@@ -2555,84 +2541,84 @@
             this.panel7.Size = new System.Drawing.Size(452, 40);
             this.panel7.TabIndex = 1;
             // 
-            // label23
+            // profileLabel
             // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label23.Location = new System.Drawing.Point(18, 0);
-            this.label23.Margin = new System.Windows.Forms.Padding(0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(250, 40);
-            this.label23.TabIndex = 5;
-            this.label23.Text = "No profile selected";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.profileLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.profileLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.profileLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.profileLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.profileLabel.Location = new System.Drawing.Point(18, 0);
+            this.profileLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.profileLabel.Name = "profileLabel";
+            this.profileLabel.Size = new System.Drawing.Size(250, 40);
+            this.profileLabel.TabIndex = 5;
+            this.profileLabel.Text = "No profile selected";
+            this.profileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button14
+            // newProfileButton
             // 
-            this.button14.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(275, 0);
-            this.button14.Margin = new System.Windows.Forms.Padding(0);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(40, 40);
-            this.button14.TabIndex = 4;
-            this.button14.UseVisualStyleBackColor = false;
+            this.newProfileButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.newProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.newProfileButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newProfileButton.BackgroundImage")));
+            this.newProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.newProfileButton.FlatAppearance.BorderSize = 0;
+            this.newProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newProfileButton.Location = new System.Drawing.Point(275, 0);
+            this.newProfileButton.Margin = new System.Windows.Forms.Padding(0);
+            this.newProfileButton.Name = "newProfileButton";
+            this.newProfileButton.Size = new System.Drawing.Size(40, 40);
+            this.newProfileButton.TabIndex = 4;
+            this.newProfileButton.UseVisualStyleBackColor = false;
             // 
-            // button13
+            // saveProfileButton
             // 
-            this.button13.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
-            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Location = new System.Drawing.Point(321, 1);
-            this.button13.Margin = new System.Windows.Forms.Padding(0);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(40, 40);
-            this.button13.TabIndex = 4;
-            this.button13.UseVisualStyleBackColor = false;
+            this.saveProfileButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.saveProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.saveProfileButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveProfileButton.BackgroundImage")));
+            this.saveProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.saveProfileButton.FlatAppearance.BorderSize = 0;
+            this.saveProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveProfileButton.Location = new System.Drawing.Point(321, 1);
+            this.saveProfileButton.Margin = new System.Windows.Forms.Padding(0);
+            this.saveProfileButton.Name = "saveProfileButton";
+            this.saveProfileButton.Size = new System.Drawing.Size(40, 40);
+            this.saveProfileButton.TabIndex = 4;
+            this.saveProfileButton.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // loadProfileButton
             // 
-            this.button12.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(366, 0);
-            this.button12.Margin = new System.Windows.Forms.Padding(0);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(40, 40);
-            this.button12.TabIndex = 3;
-            this.button12.UseVisualStyleBackColor = false;
+            this.loadProfileButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.loadProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.loadProfileButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loadProfileButton.BackgroundImage")));
+            this.loadProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.loadProfileButton.FlatAppearance.BorderSize = 0;
+            this.loadProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadProfileButton.Location = new System.Drawing.Point(366, 0);
+            this.loadProfileButton.Margin = new System.Windows.Forms.Padding(0);
+            this.loadProfileButton.Name = "loadProfileButton";
+            this.loadProfileButton.Size = new System.Drawing.Size(40, 40);
+            this.loadProfileButton.TabIndex = 3;
+            this.loadProfileButton.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // importProfileButton
             // 
-            this.button11.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(412, 1);
-            this.button11.Margin = new System.Windows.Forms.Padding(0);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(40, 40);
-            this.button11.TabIndex = 2;
-            this.button11.UseVisualStyleBackColor = false;
+            this.importProfileButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.importProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.importProfileButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("importProfileButton.BackgroundImage")));
+            this.importProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.importProfileButton.FlatAppearance.BorderSize = 0;
+            this.importProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.importProfileButton.Location = new System.Drawing.Point(412, 1);
+            this.importProfileButton.Margin = new System.Windows.Forms.Padding(0);
+            this.importProfileButton.Name = "importProfileButton";
+            this.importProfileButton.Size = new System.Drawing.Size(40, 40);
+            this.importProfileButton.TabIndex = 2;
+            this.importProfileButton.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.searchTextBox);
             this.panel3.Controls.Add(this.pictureBox8);
             this.panel3.Location = new System.Drawing.Point(20, 20);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
@@ -2640,17 +2626,17 @@
             this.panel3.Size = new System.Drawing.Size(250, 40);
             this.panel3.TabIndex = 0;
             // 
-            // textBox2
+            // searchTextBox
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.textBox2.Location = new System.Drawing.Point(45, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 22);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Search for mod";
+            this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.searchTextBox.Location = new System.Drawing.Point(45, 9);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(154, 22);
+            this.searchTextBox.TabIndex = 1;
+            this.searchTextBox.Text = "Search for mod";
             // 
             // pictureBox8
             // 
@@ -2662,7 +2648,21 @@
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
             // 
-            // ModManagerForm1
+            // replicaModFileNameLabel
+            // 
+            this.replicaModFileNameLabel.AutoSize = true;
+            this.replicaModFileNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.replicaModFileNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replicaModFileNameLabel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.replicaModFileNameLabel.ForeColor = System.Drawing.Color.Silver;
+            this.replicaModFileNameLabel.Location = new System.Drawing.Point(0, 25);
+            this.replicaModFileNameLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.replicaModFileNameLabel.Name = "replicaModFileNameLabel";
+            this.replicaModFileNameLabel.Size = new System.Drawing.Size(222, 25);
+            this.replicaModFileNameLabel.TabIndex = 3;
+            this.replicaModFileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ModManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2672,7 +2672,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel1);
-            this.Name = "ModManagerForm1";
+            this.Name = "ModManagerForm";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "Kenshi Mod Manager";
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -2691,11 +2691,11 @@
             this.tableLayoutPanel24.ResumeLayout(false);
             this.tableLayoutPanel24.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.tableLayoutPanel25.ResumeLayout(false);
+            this.replicaModTableLayoutPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.tableLayoutPanel26.ResumeLayout(false);
-            this.tableLayoutPanel26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.replicaModPictureBox)).EndInit();
+            this.modTableLayoutPanel.ResumeLayout(false);
+            this.modTableLayoutPanel.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -2860,38 +2860,38 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button activeModsButton;
+        private System.Windows.Forms.Button inactiveModsButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.Label label99;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
+        private System.Windows.Forms.TableLayoutPanel replicaModTableLayoutPanel;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
-        private System.Windows.Forms.Label label101;
-        private System.Windows.Forms.Label label103;
-        private System.Windows.Forms.Label label104;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label label102;
-        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.TableLayoutPanel modTableLayoutPanel;
+        private System.Windows.Forms.Label replicaModNameLabel;
+        private System.Windows.Forms.Label replicaModCategoryLabel;
+        private System.Windows.Forms.Label replicaModSourceLabel;
+        private System.Windows.Forms.Button replicaModStateButton;
+        private System.Windows.Forms.PictureBox replicaModPictureBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button newProfileButton;
+        private System.Windows.Forms.Button saveProfileButton;
+        private System.Windows.Forms.Button loadProfileButton;
+        private System.Windows.Forms.Button importProfileButton;
+        private System.Windows.Forms.Label profileLabel;
+        private System.Windows.Forms.Label replicaModFileNameLabel;
     }
 }
