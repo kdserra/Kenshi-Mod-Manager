@@ -13,15 +13,17 @@ Tool to manage your mods for Kenshi.
 
 [Order based off "Proper Load Order & You" by Atlas](https://steamcommunity.com/sharedfiles/filedetails/?id=1850250979)
 
+[Steamworks.NET](https://github.com/rlabrecque/Steamworks.NET) (MIT License)
+
 [Json.NET](https://www.newtonsoft.com/json) (MIT License)
 
 [open by DigitalShards Five from Noun Project](https://thenounproject.com/icon/open-1904155/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
 
 [Plus by Three Six Five from Noun Project](https://thenounproject.com/icon/plus-2048207/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
 
-[Save by Edwin PM from Noun Project](https://thenounproject.com/icon/save-1031851/)
+[Save by Edwin PM from Noun Project](https://thenounproject.com/icon/save-1031851/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
 
-[Settings by i cons from Noun Project](https://thenounproject.com/icon/settings-2650523/)
+[Settings by i cons from Noun Project](https://thenounproject.com/icon/settings-2650523/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
 
 [Search by juli from Noun Project](https://thenounproject.com/icon/search-875352/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
 
