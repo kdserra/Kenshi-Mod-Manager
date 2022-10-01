@@ -8,12 +8,12 @@ namespace Kenshi_Mod_Manager
 {
     public partial class ModManagerForm : Form
     {
-        private const int REPLICA_MOD_ROW_INDEX = 1;
         private readonly Color FocusColor = Color.FromArgb(242, 242, 242);
         private readonly Color UnfocusedColor = Color.FromArgb(151, 151, 151);
         private readonly Color PrimaryGrey = Color.FromArgb(51, 51, 51);
         private readonly Color NonprimaryGrey = Color.FromArgb(25, 25, 25);
-        private List<ModEntry> m_ModEntryList = new List<ModEntry>() { };
+        private List<ModEntry> m_ActiveModEntryList = new List<ModEntry>() { };
+        private List<ModEntry> m_InactiveModEntryList = new List<ModEntry>() { };
         private ActiveTab m_CurrentActiveTab = ActiveTab.ActiveMods;
 
         public ActiveTab CurrentActiveTab
@@ -28,6 +28,19 @@ namespace Kenshi_Mod_Manager
             }
         }
 
+        public List<ModEntry> CurrentModEntryList
+        {
+            get
+            {
+                switch (CurrentActiveTab)
+                {
+                    case ActiveTab.ActiveMods:   return m_ActiveModEntryList;
+                    case ActiveTab.InactiveMods: return m_InactiveModEntryList;
+                    default: return new List<ModEntry>() { };
+                }
+            }
+        }
+
         public ModManagerForm()
         {
             InitializeComponent();
@@ -39,25 +52,25 @@ namespace Kenshi_Mod_Manager
 
         private void AddToModEntryTable(ModEntry modEntry)
         {
-            m_ModEntryList.Add(modEntry);
+            CurrentModEntryList.Add(modEntry);
             SyncModEntryTable();
         }
 
         private bool RemoveFromModEntryTable(ModEntry modEntry)
         {
-            bool removed = m_ModEntryList.Remove(modEntry);
+            bool removed = CurrentModEntryList.Remove(modEntry);
             if (removed) { SyncModEntryTable(); }
             return removed;
         }
 
         private void SyncModEntryTable()
         {
-            if (m_ModEntryList != null)
+            if (CurrentModEntryList != null)
             {
                 SuspendLayout();
                 modEntryTableLayoutPanel.SuspendLayout();
                 modEntryTableLayoutPanel.ClearRows();
-                foreach (ModEntry modEntry in m_ModEntryList)
+                foreach (ModEntry modEntry in CurrentModEntryList)
                 {
                     AddRowToModEntryTable(modEntry);
                 }
