@@ -23,6 +23,21 @@ namespace Kenshi_Mod_Manager
             Categories = categories;
             Source = source;
         }
+
+        public string GetCategoriesString()
+        {
+            string output = "";
+            if (Categories != null)
+            {
+                for (int i = 0; i < Categories.Length; i++)
+                {
+                    string category = Categories[i];
+                    if (i > 0) { output += ", "; }
+                    output += category;
+                }
+            }
+            return output;
+        }
     }
 
 }
