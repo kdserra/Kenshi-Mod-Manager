@@ -1115,6 +1115,7 @@
             // 
             // modEntryTableLayoutPanel
             // 
+            this.modEntryTableLayoutPanel.AutoScroll = true;
             this.modEntryTableLayoutPanel.ColumnCount = 4;
             this.modEntryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.modEntryTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
