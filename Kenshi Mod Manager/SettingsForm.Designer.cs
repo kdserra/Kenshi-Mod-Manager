@@ -30,12 +30,12 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.kenshiModDirOpenButton = new System.Windows.Forms.Button();
+            this.kenshiModDirTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.kenshiDirTextBox = new System.Windows.Forms.TextBox();
+            this.kenshiDirOpenButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -62,12 +62,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.saveButton);
+            this.panel1.Controls.Add(this.kenshiModDirOpenButton);
+            this.panel1.Controls.Add(this.kenshiModDirTextBox);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.kenshiDirTextBox);
+            this.panel1.Controls.Add(this.kenshiDirOpenButton);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -77,43 +77,44 @@
             this.panel1.Size = new System.Drawing.Size(520, 280);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // saveButton
             // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.button4.Location = new System.Drawing.Point(397, 226);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 43);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Save";
-            this.button4.UseVisualStyleBackColor = true;
+            this.saveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.saveButton.Location = new System.Drawing.Point(397, 226);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(113, 43);
+            this.saveButton.TabIndex = 10;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // button2
+            // kenshiModDirOpenButton
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.button2.Location = new System.Drawing.Point(432, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(78, 34);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Open";
-            this.button2.UseVisualStyleBackColor = true;
+            this.kenshiModDirOpenButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.kenshiModDirOpenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kenshiModDirOpenButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kenshiModDirOpenButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.kenshiModDirOpenButton.Location = new System.Drawing.Point(432, 154);
+            this.kenshiModDirOpenButton.Name = "kenshiModDirOpenButton";
+            this.kenshiModDirOpenButton.Size = new System.Drawing.Size(78, 34);
+            this.kenshiModDirOpenButton.TabIndex = 9;
+            this.kenshiModDirOpenButton.Text = "Open";
+            this.kenshiModDirOpenButton.UseVisualStyleBackColor = true;
+            this.kenshiModDirOpenButton.Click += new System.EventHandler(this.kenshiModDirOpenButton_Click);
             // 
-            // textBox1
+            // kenshiModDirTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.textBox1.Location = new System.Drawing.Point(6, 166);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(420, 22);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "C:\\Program Files (x86)\\Steam\\steamapps\\workshop\\content\\233860";
+            this.kenshiModDirTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.kenshiModDirTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kenshiModDirTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kenshiModDirTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.kenshiModDirTextBox.Location = new System.Drawing.Point(6, 166);
+            this.kenshiModDirTextBox.Name = "kenshiModDirTextBox";
+            this.kenshiModDirTextBox.Size = new System.Drawing.Size(420, 22);
+            this.kenshiModDirTextBox.TabIndex = 8;
             // 
             // label3
             // 
@@ -126,30 +127,30 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Settings";
             // 
-            // textBox2
+            // kenshiDirTextBox
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.textBox2.Location = new System.Drawing.Point(6, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(420, 22);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.Text = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Kenshi";
+            this.kenshiDirTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.kenshiDirTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kenshiDirTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kenshiDirTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.kenshiDirTextBox.Location = new System.Drawing.Point(6, 93);
+            this.kenshiDirTextBox.Name = "kenshiDirTextBox";
+            this.kenshiDirTextBox.Size = new System.Drawing.Size(420, 22);
+            this.kenshiDirTextBox.TabIndex = 4;
             // 
-            // button1
+            // kenshiDirOpenButton
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.button1.Location = new System.Drawing.Point(432, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 34);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Open";
-            this.button1.UseVisualStyleBackColor = true;
+            this.kenshiDirOpenButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.kenshiDirOpenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kenshiDirOpenButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kenshiDirOpenButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.kenshiDirOpenButton.Location = new System.Drawing.Point(432, 81);
+            this.kenshiDirOpenButton.Name = "kenshiDirOpenButton";
+            this.kenshiDirOpenButton.Size = new System.Drawing.Size(78, 34);
+            this.kenshiDirOpenButton.TabIndex = 3;
+            this.kenshiDirOpenButton.Text = "Open";
+            this.kenshiDirOpenButton.UseVisualStyleBackColor = true;
+            this.kenshiDirOpenButton.Click += new System.EventHandler(this.kenshiDirOpenButton_Click);
             // 
             // label2
             // 
@@ -197,12 +198,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox kenshiDirTextBox;
+        private System.Windows.Forms.Button kenshiDirOpenButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox kenshiModDirTextBox;
+        private System.Windows.Forms.Button kenshiModDirOpenButton;
+        private System.Windows.Forms.Button saveButton;
     }
 }
