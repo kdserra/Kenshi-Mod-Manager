@@ -117,7 +117,6 @@ namespace Kenshi_Mod_Manager
             modEntryTableLayoutPanel.Controls.Add(modCategoryLabel, 1, rowIndex);
             modEntryTableLayoutPanel.Controls.Add(modSourceLabel, 2, rowIndex);
             modEntryTableLayoutPanel.Controls.Add(modStateButton, 3, rowIndex);
-            modEntryTableLayoutPanel.AutoScroll = true;
             // modPanel
             modPanel.Controls.Add(modTableLayoutPanel);
             modPanel.Dock = DockStyle.Fill;
@@ -126,7 +125,6 @@ namespace Kenshi_Mod_Manager
             modPanel.Name = "modPanel";
             modPanel.Size = new Size(245, 50);
             modPanel.TabIndex = 5;
-            modPanel.AutoScroll = true;
             // 
             // modPictureBoxPanel
             // 
@@ -138,7 +136,6 @@ namespace Kenshi_Mod_Manager
             modPictureBoxPanel.Size = new Size(50, 50);
             modPictureBoxPanel.TabIndex = 0;
             modPictureBoxPanel.Controls.Add(modPictureBox);
-            modPictureBoxPanel.AutoScroll = true;
             // modTableLayoutPanel
             modTableLayoutPanel.ColumnCount = 2;
             modTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
@@ -151,7 +148,6 @@ namespace Kenshi_Mod_Manager
             modTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             modTableLayoutPanel.Size = new Size(245, 50);
             modTableLayoutPanel.TabIndex = 0;
-            modTableLayoutPanel.AutoScroll = true;
             // modPictureBox
             modPictureBox.Dock = DockStyle.Fill;
             modPictureBox.Location = new Point(0, 0);
@@ -174,7 +170,6 @@ namespace Kenshi_Mod_Manager
             modInfoTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             modInfoTableLayoutPanel.Size = new Size(195, 50);
             modInfoTableLayoutPanel.TabIndex = 1;
-            modInfoTableLayoutPanel.AutoScroll = true;
             // modFileNameLabel
             modFileNameLabel.AutoSize = true;
             modFileNameLabel.BackColor = Color.FromArgb(51, 51, 51);
