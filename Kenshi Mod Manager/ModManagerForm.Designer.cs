@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModManagerForm));
-            this.saveToKenshiButton = new System.Windows.Forms.Button();
-            this.orderModsButton = new System.Windows.Forms.Button();
-            this.refreshButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
@@ -180,7 +176,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.settingsButton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.profileLabel = new System.Windows.Forms.Label();
             this.newProfileButton = new System.Windows.Forms.Button();
             this.saveProfileButton = new System.Windows.Forms.Button();
@@ -189,7 +185,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.orderModsButton = new System.Windows.Forms.Button();
+            this.saveToKenshiButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -229,69 +228,8 @@
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // saveToKenshiButton
-            // 
-            this.saveToKenshiButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveToKenshiButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.saveToKenshiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveToKenshiButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.saveToKenshiButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.saveToKenshiButton.Location = new System.Drawing.Point(3, 3);
-            this.saveToKenshiButton.Name = "saveToKenshiButton";
-            this.saveToKenshiButton.Size = new System.Drawing.Size(144, 44);
-            this.saveToKenshiButton.TabIndex = 39;
-            this.saveToKenshiButton.Text = "Save to Kenshi";
-            this.saveToKenshiButton.UseVisualStyleBackColor = true;
-            this.saveToKenshiButton.Click += new System.EventHandler(this.saveToKenshiButton_Click);
-            // 
-            // orderModsButton
-            // 
-            this.orderModsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderModsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.orderModsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.orderModsButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.orderModsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.orderModsButton.Location = new System.Drawing.Point(153, 3);
-            this.orderModsButton.Name = "orderModsButton";
-            this.orderModsButton.Size = new System.Drawing.Size(144, 44);
-            this.orderModsButton.TabIndex = 38;
-            this.orderModsButton.Text = "Order Mods";
-            this.orderModsButton.UseVisualStyleBackColor = true;
-            this.orderModsButton.Click += new System.EventHandler(this.orderModsButton_Click);
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.refreshButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.refreshButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.refreshButton.Location = new System.Drawing.Point(722, 3);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(144, 44);
-            this.refreshButton.TabIndex = 36;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.Controls.Add(this.saveToKenshiButton, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.orderModsButton, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.refreshButton, 3, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 506);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(869, 50);
-            this.tableLayoutPanel2.TabIndex = 55;
             // 
             // tableLayoutPanel4
             // 
@@ -2437,10 +2375,11 @@
             this.settingsButton.Size = new System.Drawing.Size(40, 40);
             this.settingsButton.TabIndex = 1;
             this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.button1);
+            this.panel7.Controls.Add(this.exportButton);
             this.panel7.Controls.Add(this.profileLabel);
             this.panel7.Controls.Add(this.newProfileButton);
             this.panel7.Controls.Add(this.saveProfileButton);
@@ -2453,20 +2392,21 @@
             this.panel7.Size = new System.Drawing.Size(522, 40);
             this.panel7.TabIndex = 1;
             // 
-            // button1
+            // exportButton
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(480, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 6;
-            this.button1.UseVisualStyleBackColor = false;
+            this.exportButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.exportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.exportButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exportButton.BackgroundImage")));
+            this.exportButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.exportButton.FlatAppearance.BorderSize = 0;
+            this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportButton.Location = new System.Drawing.Point(480, 0);
+            this.exportButton.Margin = new System.Windows.Forms.Padding(0);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(40, 40);
+            this.exportButton.TabIndex = 6;
+            this.exportButton.UseVisualStyleBackColor = false;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // profileLabel
             // 
@@ -2496,6 +2436,7 @@
             this.newProfileButton.Size = new System.Drawing.Size(40, 40);
             this.newProfileButton.TabIndex = 4;
             this.newProfileButton.UseVisualStyleBackColor = false;
+            this.newProfileButton.Click += new System.EventHandler(this.newProfileButton_Click);
             // 
             // saveProfileButton
             // 
@@ -2511,6 +2452,7 @@
             this.saveProfileButton.Size = new System.Drawing.Size(40, 40);
             this.saveProfileButton.TabIndex = 4;
             this.saveProfileButton.UseVisualStyleBackColor = false;
+            this.saveProfileButton.Click += new System.EventHandler(this.saveProfileButton_Click);
             // 
             // loadProfileButton
             // 
@@ -2526,6 +2468,7 @@
             this.loadProfileButton.Size = new System.Drawing.Size(40, 40);
             this.loadProfileButton.TabIndex = 3;
             this.loadProfileButton.UseVisualStyleBackColor = false;
+            this.loadProfileButton.Click += new System.EventHandler(this.loadProfileButton_Click);
             // 
             // importProfileButton
             // 
@@ -2541,6 +2484,7 @@
             this.importProfileButton.Size = new System.Drawing.Size(40, 40);
             this.importProfileButton.TabIndex = 2;
             this.importProfileButton.UseVisualStyleBackColor = false;
+            this.importProfileButton.Click += new System.EventHandler(this.importProfileButton_Click);
             // 
             // panel3
             // 
@@ -2575,6 +2519,69 @@
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.Controls.Add(this.saveToKenshiButton, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.orderModsButton, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.refreshButton, 3, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 506);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(869, 50);
+            this.tableLayoutPanel2.TabIndex = 55;
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refreshButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.refreshButton.Location = new System.Drawing.Point(722, 3);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(144, 44);
+            this.refreshButton.TabIndex = 36;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // orderModsButton
+            // 
+            this.orderModsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orderModsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.orderModsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderModsButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.orderModsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.orderModsButton.Location = new System.Drawing.Point(153, 3);
+            this.orderModsButton.Name = "orderModsButton";
+            this.orderModsButton.Size = new System.Drawing.Size(144, 44);
+            this.orderModsButton.TabIndex = 38;
+            this.orderModsButton.Text = "Order Mods";
+            this.orderModsButton.UseVisualStyleBackColor = true;
+            this.orderModsButton.Click += new System.EventHandler(this.orderModsButton_Click);
+            // 
+            // saveToKenshiButton
+            // 
+            this.saveToKenshiButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveToKenshiButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.saveToKenshiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveToKenshiButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.saveToKenshiButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.saveToKenshiButton.Location = new System.Drawing.Point(3, 3);
+            this.saveToKenshiButton.Name = "saveToKenshiButton";
+            this.saveToKenshiButton.Size = new System.Drawing.Size(144, 44);
+            this.saveToKenshiButton.TabIndex = 39;
+            this.saveToKenshiButton.Text = "Save to Kenshi";
+            this.saveToKenshiButton.UseVisualStyleBackColor = true;
+            this.saveToKenshiButton.Click += new System.EventHandler(this.saveToKenshiButton_Click);
+            // 
             // ModManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2589,7 +2596,6 @@
             this.Name = "ModManagerForm";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "Kenshi Mod Manager";
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -2631,16 +2637,13 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button saveToKenshiButton;
-        private System.Windows.Forms.Button orderModsButton;
-        private System.Windows.Forms.Button refreshButton;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button button4;
@@ -2796,6 +2799,10 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel modEntryTableLayoutPanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button exportButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button saveToKenshiButton;
+        private System.Windows.Forms.Button orderModsButton;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

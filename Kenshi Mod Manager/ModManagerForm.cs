@@ -258,6 +258,37 @@ namespace Kenshi_Mod_Manager
             AddToModEntryTable(modEntry);
         }
 
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            Form form = new SettingsForm();
+            form.ShowDialog();
+        }
+
+        private void newProfileButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveProfileButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadProfileButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void importProfileButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void saveToKenshiButton_Click(object sender, EventArgs e)
         {
             TestAddRowAsync();
@@ -266,6 +297,11 @@ namespace Kenshi_Mod_Manager
         private void orderModsButton_Click(object sender, EventArgs e)
         {
             modEntryTableLayoutPanel.ClearRows();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

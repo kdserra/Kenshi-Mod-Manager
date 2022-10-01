@@ -314,10 +314,10 @@
         pEn/A0V8OKUe5yEsAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="exportButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAABTJJREFUeF7tnMtuHEUYhRPbY8vZBRHxCrDIE4R3IKsgYUAoESKBBDYgr0Cy5LvH
+        vAAADrwBlbxySQAABTJJREFUeF7tnMtuHEUYhRPbY8vZBRHxCrDIE4R3IKsgYUAoESKBBDYgr0Cy5LvH
         47HHHr8CqzxPWIOEsaJEXHZchvO32lLTOt2ecVXNX2PO4lO3z9Tl7zquS3f1zI3RaCQygorCDyoKP6go
         /KCi8IOKwg8qCj+oKPygovCDisIPKgo/qCj8oKLwg4rCDyoKP6go/KCi8IOKwg8qCj+oKPygYixOT0+X
         wd3I3GZ1MSxtLW8s3mL1xYCKMUDQSxsbG1/j+GtMer3eHo5vsDqrIM1tpN2t5o3F3t7eCxzvsHpDoWIo
