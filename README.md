@@ -27,6 +27,8 @@ Tool to manage your mods for Kenshi.
 
 [import by The Icon Z from Noun Project](https://thenounproject.com/icon/import-3323719/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
 
+[export by ✦ Shmidt Sergey ✦ from Noun Project](https://thenounproject.com/icon/export-534720/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
+
 ## License
 
 Kenshi Mod Manager is [MIT licensed](./LICENSE).

@@ -180,6 +180,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.settingsButton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.profileLabel = new System.Windows.Forms.Label();
             this.newProfileButton = new System.Windows.Forms.Button();
             this.saveProfileButton = new System.Windows.Forms.Button();
@@ -2398,12 +2399,12 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel7, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -2420,7 +2421,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(434, 40);
+            this.panel2.Size = new System.Drawing.Size(347, 40);
             this.panel2.TabIndex = 0;
             // 
             // settingsButton
@@ -2439,17 +2440,33 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.button1);
             this.panel7.Controls.Add(this.profileLabel);
             this.panel7.Controls.Add(this.newProfileButton);
             this.panel7.Controls.Add(this.saveProfileButton);
             this.panel7.Controls.Add(this.loadProfileButton);
             this.panel7.Controls.Add(this.importProfileButton);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(434, 0);
+            this.panel7.Location = new System.Drawing.Point(347, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(435, 40);
+            this.panel7.Size = new System.Drawing.Size(522, 40);
             this.panel7.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(480, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 40);
+            this.button1.TabIndex = 6;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // profileLabel
             // 
@@ -2457,7 +2474,7 @@
             this.profileLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.profileLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.profileLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.profileLabel.Location = new System.Drawing.Point(1, 0);
+            this.profileLabel.Location = new System.Drawing.Point(45, 1);
             this.profileLabel.Margin = new System.Windows.Forms.Padding(0);
             this.profileLabel.Name = "profileLabel";
             this.profileLabel.Size = new System.Drawing.Size(250, 40);
@@ -2473,7 +2490,7 @@
             this.newProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.newProfileButton.FlatAppearance.BorderSize = 0;
             this.newProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newProfileButton.Location = new System.Drawing.Point(258, 0);
+            this.newProfileButton.Location = new System.Drawing.Point(300, 0);
             this.newProfileButton.Margin = new System.Windows.Forms.Padding(0);
             this.newProfileButton.Name = "newProfileButton";
             this.newProfileButton.Size = new System.Drawing.Size(40, 40);
@@ -2488,7 +2505,7 @@
             this.saveProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.saveProfileButton.FlatAppearance.BorderSize = 0;
             this.saveProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveProfileButton.Location = new System.Drawing.Point(304, 1);
+            this.saveProfileButton.Location = new System.Drawing.Point(345, 1);
             this.saveProfileButton.Margin = new System.Windows.Forms.Padding(0);
             this.saveProfileButton.Name = "saveProfileButton";
             this.saveProfileButton.Size = new System.Drawing.Size(40, 40);
@@ -2503,7 +2520,7 @@
             this.loadProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.loadProfileButton.FlatAppearance.BorderSize = 0;
             this.loadProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loadProfileButton.Location = new System.Drawing.Point(349, 0);
+            this.loadProfileButton.Location = new System.Drawing.Point(390, 1);
             this.loadProfileButton.Margin = new System.Windows.Forms.Padding(0);
             this.loadProfileButton.Name = "loadProfileButton";
             this.loadProfileButton.Size = new System.Drawing.Size(40, 40);
@@ -2518,7 +2535,7 @@
             this.importProfileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.importProfileButton.FlatAppearance.BorderSize = 0;
             this.importProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.importProfileButton.Location = new System.Drawing.Point(395, 1);
+            this.importProfileButton.Location = new System.Drawing.Point(435, 0);
             this.importProfileButton.Margin = new System.Windows.Forms.Padding(0);
             this.importProfileButton.Name = "importProfileButton";
             this.importProfileButton.Size = new System.Drawing.Size(40, 40);
@@ -2779,5 +2796,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel modEntryTableLayoutPanel;
+        private System.Windows.Forms.Button button1;
     }
 }
