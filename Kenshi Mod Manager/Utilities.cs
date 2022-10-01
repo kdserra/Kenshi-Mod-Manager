@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +19,7 @@ namespace Kenshi_Mod_Manager
             }
         }
 
-        public async static Task<Image> GetImage(string url)
+        public static Image GetImage(string url)
         {
             using (WebClient webClient = new WebClient())
             {
@@ -40,12 +42,19 @@ namespace Kenshi_Mod_Manager
                 wb.DocumentStream = response.GetResponseStream();
                 wb.ScriptErrorsSuppressed = true;
                 HtmlDocument doc = wb.Document;
-                await Task.Delay(2000);
-
-                //await GetImage(srcImageURL);
+                await Utilities.WaitUntil(() => doc.ActiveElement != null);
+                Regex workshopItemPreviewImageMainFilter = new Regex(@"(?<=workshopItemPreviewImageMain src="")https:\/\/steamuserimages-a.akamaihd.net\/ugc\/[0-9]*\/\w+\/");
+                Regex previewImageMainFilter = new Regex(@"(?<=workshopItemPreviewImageEnlargeable src="")https:\/\/steamuserimages-a.akamaihd.net/ugc/[0-9]+/\w+/");
+                string imageURL = workshopItemPreviewImageMainFilter.Match(doc.ActiveElement.OuterHtml).ToString();
+                if (imageURL == "")
+                {
+                    imageURL = previewImageMainFilter.Match(doc.ActiveElement.OuterHtml).ToString();
+                }
+                if (imageURL == "") { imageURL = "https://community.cloudflare.steamstatic.com/public/images/sharedfiles/steam_workshop_default_image.png"; }
+                Image image = Utilities.GetImage(imageURL);
+                return image;
             }
             catch { return null; }
-            return null;
         }
     }
 }

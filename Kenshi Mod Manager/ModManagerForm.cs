@@ -48,14 +48,14 @@ namespace Kenshi_Mod_Manager
             InitializeComponent();
             this.Select();
             this.Focus();
-            Init();
             SyncModTab();
-            SyncModEntryTable();
+            Init();
         }
 
         private async void Init()
         {
             m_InactiveModEntryList = await FetchModsFromDisk();
+            SyncModEntryTable();
         }
 
         private void AddToModEntryTable(ModEntry modEntry)
@@ -75,9 +75,7 @@ namespace Kenshi_Mod_Manager
         {
             string modDirectoryPath = Settings.Default.KENSHI_MOD_DIRECTORY;
 
-            /*
-            // Uri.IsWellFormedUriString doesn't work as expected (i think it's an issue with back slashes)
-            if (!Uri.IsWellFormedUriString(modDirectoryPath, UriKind.Absolute))
+            if (!Directory.Exists(modDirectoryPath))
             {
                 MessageBox.Show(
                     "Failed to fetch mods from disk. Check that the Kenshi Mod Directory Path is setup correctly.",
@@ -87,7 +85,6 @@ namespace Kenshi_Mod_Manager
                     );
                 return new List<ModEntry>(){ };
             }
-            */
 
             List<ModEntry> modEntries = new List<ModEntry>() { };
             string steamCommunityFileIDURL = "https://steamcommunity.com/sharedfiles/filedetails/?id=";
@@ -103,15 +100,15 @@ namespace Kenshi_Mod_Manager
                     xmlDoc.Load(fileName);
                     XmlElement xmlE = xmlDoc.DocumentElement;
 
-                    //string id = "";
+                    string id = "";
                     string modTitle = "";
                     List<string> modCategories = new List<string>() { };
                     foreach (XmlNode v in xmlE.ChildNodes)
                     {
                         string s = v.Name;
-                        //if (s == "id") { id = v.InnerText; }
+                        if (s == "id") { id = v.InnerText; }
                         if (s == "title") { modTitle = v.InnerText; }
-                        if (s == "tags") 
+                        if (s == "tags")
                         {
                             foreach (XmlNode xmlNode in v.ChildNodes)
                             {
@@ -119,14 +116,14 @@ namespace Kenshi_Mod_Manager
                             }
                         }
                     }
-                    //Image image = await Utilities.GetSteamWorkshopThumbnail(id);
-                    //if (image == null) { continue; }
+                    Image image = await Utilities.GetSteamWorkshopThumbnail(id);
+                    if (image == null) { continue; }
                     string modFileName = Path.GetFileNameWithoutExtension(fileName)[1..] + ".mod";
 
                     ModEntry modEntry = new ModEntry(
                         name: modTitle,
                         fileName: modFileName,
-                        image: null,
+                        image: image,
                         categories: modCategories.ToArray(),
                         source: ModSource.Steam
                         );
@@ -368,7 +365,7 @@ namespace Kenshi_Mod_Manager
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-
+            SyncModEntryTable();
         }
     }
 }
