@@ -42,7 +42,7 @@ namespace Kenshi_Mod_Manager
         {
             Settings.Default.KENSHI_DIRECTORY = kenshiDirTextBox.Text;
             Settings.Default.KENSHI_MOD_DIRECTORY = kenshiModDirTextBox.Text;
-            Properties.Settings.Default.Save();
+            Settings.Default.Save();
         }
     }
 }
