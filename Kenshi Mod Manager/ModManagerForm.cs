@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Kenshi_Mod_Manager
 {
@@ -34,7 +36,7 @@ namespace Kenshi_Mod_Manager
             {
                 switch (CurrentActiveTab)
                 {
-                    case ActiveTab.ActiveMods:   return m_ActiveModEntryList;
+                    case ActiveTab.ActiveMods: return m_ActiveModEntryList;
                     case ActiveTab.InactiveMods: return m_InactiveModEntryList;
                     default: return new List<ModEntry>() { };
                 }
@@ -46,8 +48,14 @@ namespace Kenshi_Mod_Manager
             InitializeComponent();
             this.Select();
             this.Focus();
+            Init();
             SyncModTab();
             SyncModEntryTable();
+        }
+
+        private async void Init()
+        {
+            m_InactiveModEntryList = await FetchModsFromDisk();
         }
 
         private void AddToModEntryTable(ModEntry modEntry)
@@ -61,6 +69,74 @@ namespace Kenshi_Mod_Manager
             bool removed = CurrentModEntryList.Remove(modEntry);
             if (removed) { SyncModEntryTable(); }
             return removed;
+        }
+
+        private static async Task<List<ModEntry>> FetchModsFromDisk()
+        {
+            string modDirectoryPath = Settings.Default.KENSHI_MOD_DIRECTORY;
+
+            /*
+            // Uri.IsWellFormedUriString doesn't work as expected (i think it's an issue with back slashes)
+            if (!Uri.IsWellFormedUriString(modDirectoryPath, UriKind.Absolute))
+            {
+                MessageBox.Show(
+                    "Failed to fetch mods from disk. Check that the Kenshi Mod Directory Path is setup correctly.",
+                    "Kenshi Mod Manager",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+                return new List<ModEntry>(){ };
+            }
+            */
+
+            List<ModEntry> modEntries = new List<ModEntry>() { };
+            string steamCommunityFileIDURL = "https://steamcommunity.com/sharedfiles/filedetails/?id=";
+            string[] subDirectories = Directory.GetDirectories(modDirectoryPath);
+            foreach (string subDirectory in subDirectories)
+            {
+                string[] fileNames = Directory.GetFiles(subDirectory, "*.info", SearchOption.TopDirectoryOnly);
+                if (fileNames == null || fileNames.Length == 0) { continue; }
+                string fileName = fileNames[0];
+                XmlDocument xmlDoc = new XmlDocument();
+                try
+                {
+                    xmlDoc.Load(fileName);
+                    XmlElement xmlE = xmlDoc.DocumentElement;
+
+                    //string id = "";
+                    string modTitle = "";
+                    List<string> modCategories = new List<string>() { };
+                    foreach (XmlNode v in xmlE.ChildNodes)
+                    {
+                        string s = v.Name;
+                        //if (s == "id") { id = v.InnerText; }
+                        if (s == "title") { modTitle = v.InnerText; }
+                        if (s == "tags") 
+                        {
+                            foreach (XmlNode xmlNode in v.ChildNodes)
+                            {
+                                modCategories.Add(xmlNode.InnerText);
+                            }
+                        }
+                    }
+                    //Image image = await Utilities.GetSteamWorkshopThumbnail(id);
+                    //if (image == null) { continue; }
+                    string modFileName = Path.GetFileNameWithoutExtension(fileName)[1..] + ".mod";
+
+                    ModEntry modEntry = new ModEntry(
+                        name: modTitle,
+                        fileName: modFileName,
+                        image: null,
+                        categories: modCategories.ToArray(),
+                        source: ModSource.Steam
+                        );
+
+                    modEntries.Add(modEntry);
+                }
+                catch { continue; }
+            }
+
+            return modEntries;
         }
 
         private void SyncModEntryTable()
@@ -117,10 +193,12 @@ namespace Kenshi_Mod_Manager
 
             modNameLabel.Text = modEntry.Name;
             modFileNameLabel.Text = modEntry.FileName;
-            modCategoryLabel.Text = modEntry.Categories[0];
+            modCategoryLabel.Text = modEntry.GetCategoriesString();
             modSourceLabel.Text = modEntry.Source.ToString();
             modStateButton.Text = "Toggle";
             modPictureBox.Image = modEntry.Image;
+
+            ((System.ComponentModel.ISupportInitialize)(modPictureBox)).BeginInit();
 
             #region spam
             // 
@@ -184,7 +262,6 @@ namespace Kenshi_Mod_Manager
             modInfoTableLayoutPanel.Size = new Size(195, 50);
             modInfoTableLayoutPanel.TabIndex = 1;
             // modFileNameLabel
-            modFileNameLabel.AutoSize = true;
             modFileNameLabel.BackColor = Color.FromArgb(51, 51, 51);
             modFileNameLabel.Dock = DockStyle.Fill;
             modFileNameLabel.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -195,7 +272,6 @@ namespace Kenshi_Mod_Manager
             modFileNameLabel.TabIndex = 3;
             modFileNameLabel.TextAlign = ContentAlignment.MiddleLeft;
             // modNameLabel
-            modNameLabel.AutoSize = true;
             modNameLabel.BackColor = Color.FromArgb(51, 51, 51);
             modNameLabel.Dock = DockStyle.Fill;
             modNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -206,7 +282,6 @@ namespace Kenshi_Mod_Manager
             modNameLabel.TabIndex = 2;
             modNameLabel.TextAlign = ContentAlignment.MiddleLeft;
             // modCategoryLabel
-            modCategoryLabel.AutoSize = true;
             modCategoryLabel.BackColor = Color.FromArgb(51, 51, 51);
             modCategoryLabel.Dock = DockStyle.Fill;
             modCategoryLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -217,7 +292,6 @@ namespace Kenshi_Mod_Manager
             modCategoryLabel.TabIndex = 6;
             modCategoryLabel.TextAlign = ContentAlignment.MiddleLeft;
             // modSourceLabel
-            modSourceLabel.AutoSize = true;
             modSourceLabel.BackColor = Color.FromArgb(51, 51, 51);
             modSourceLabel.Dock = DockStyle.Fill;
             modSourceLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -239,6 +313,8 @@ namespace Kenshi_Mod_Manager
             modStateButton.TabIndex = 8;
             modStateButton.UseVisualStyleBackColor = true;
             #endregion
+
+            ((System.ComponentModel.ISupportInitialize)(modPictureBox)).EndInit();
         }
 
         private void activeModsButton_Click(object sender, EventArgs e)
@@ -249,13 +325,6 @@ namespace Kenshi_Mod_Manager
         private void inactiveModsButton_Click(object sender, EventArgs e)
         {
             CurrentActiveTab = ActiveTab.InactiveMods;
-        }
-
-        private async void TestAddRowAsync()
-        {
-            Image image = await Utilities.GetImage("https://steamuserimages-a.akamaihd.net/ugc/1903352713464638487/3F27EC391F0B4196DB3C14B193CAF7345E070C9B/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false");
-            ModEntry modEntry = new ModEntry("Cat's Farmer Bundle", "CatsFarmerBundle.mod", image, new string[] { "Clothing" }, ModSource.Steam);
-            AddToModEntryTable(modEntry);
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
@@ -291,12 +360,10 @@ namespace Kenshi_Mod_Manager
 
         private void saveToKenshiButton_Click(object sender, EventArgs e)
         {
-            TestAddRowAsync();
         }
 
         private void orderModsButton_Click(object sender, EventArgs e)
         {
-            modEntryTableLayoutPanel.ClearRows();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
