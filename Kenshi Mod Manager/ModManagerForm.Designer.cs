@@ -186,9 +186,9 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.refreshButton = new System.Windows.Forms.Button();
-            this.orderModsButton = new System.Windows.Forms.Button();
             this.saveToKenshiButton = new System.Windows.Forms.Button();
+            this.orderModsButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2537,20 +2537,20 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(869, 50);
             this.tableLayoutPanel2.TabIndex = 55;
             // 
-            // refreshButton
+            // saveToKenshiButton
             // 
-            this.refreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.refreshButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.refreshButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.refreshButton.Location = new System.Drawing.Point(722, 3);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(144, 44);
-            this.refreshButton.TabIndex = 36;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            this.saveToKenshiButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveToKenshiButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.saveToKenshiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveToKenshiButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.saveToKenshiButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.saveToKenshiButton.Location = new System.Drawing.Point(3, 3);
+            this.saveToKenshiButton.Name = "saveToKenshiButton";
+            this.saveToKenshiButton.Size = new System.Drawing.Size(144, 44);
+            this.saveToKenshiButton.TabIndex = 39;
+            this.saveToKenshiButton.Text = "Save to Kenshi";
+            this.saveToKenshiButton.UseVisualStyleBackColor = true;
+            this.saveToKenshiButton.Click += new System.EventHandler(this.saveToKenshiButton_Click);
             // 
             // orderModsButton
             // 
@@ -2567,20 +2567,20 @@
             this.orderModsButton.UseVisualStyleBackColor = true;
             this.orderModsButton.Click += new System.EventHandler(this.orderModsButton_Click);
             // 
-            // saveToKenshiButton
+            // refreshButton
             // 
-            this.saveToKenshiButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveToKenshiButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.saveToKenshiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveToKenshiButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.saveToKenshiButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.saveToKenshiButton.Location = new System.Drawing.Point(3, 3);
-            this.saveToKenshiButton.Name = "saveToKenshiButton";
-            this.saveToKenshiButton.Size = new System.Drawing.Size(144, 44);
-            this.saveToKenshiButton.TabIndex = 39;
-            this.saveToKenshiButton.Text = "Save to Kenshi";
-            this.saveToKenshiButton.UseVisualStyleBackColor = true;
-            this.saveToKenshiButton.Click += new System.EventHandler(this.saveToKenshiButton_Click);
+            this.refreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refreshButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.refreshButton.Location = new System.Drawing.Point(722, 3);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(144, 44);
+            this.refreshButton.TabIndex = 36;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // ModManagerForm
             // 
