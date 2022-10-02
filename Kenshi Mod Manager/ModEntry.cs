@@ -9,22 +9,19 @@ namespace Kenshi_Mod_Manager
         public readonly string FileName;
         public readonly Image Image;
         public readonly string[] Categories;
-        public readonly ModSource Source;
 
         public ModEntry(
             string id,
             string displayName,
             string fileName,
             Image image,
-            string[] categories,
-            ModSource source)
+            string[] categories)
         {
             Id = id;
             DisplayName = displayName;
             FileName = fileName;
             Image = image;
             Categories = categories;
-            Source = source;
         }
 
         public string GetCategoriesString()

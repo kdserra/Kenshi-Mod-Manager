@@ -1009,7 +1009,7 @@
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(100, 50);
             this.label98.TabIndex = 2;
-            this.label98.Text = "Source";
+            this.label98.Text = "Id";
             this.label98.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label86

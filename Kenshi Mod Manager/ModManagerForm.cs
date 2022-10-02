@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -136,7 +137,8 @@ namespace Kenshi_Mod_Manager
             string[] subDirectories = Directory.GetDirectories(modDirectoryPath);
             foreach (string subDirectory in subDirectories)
             {
-                string[] fileNames = Directory.GetFiles(subDirectory, "*.info", SearchOption.TopDirectoryOnly);
+                string directoryName = new DirectoryInfo(subDirectory).Name;
+                string[] fileNames = Utilities.GetFiles(subDirectory, new Regex(@"_.*\.info"), SearchOption.TopDirectoryOnly);
                 if (fileNames == null || fileNames.Length == 0) { continue; }
                 string fileName = fileNames[0];
                 XmlDocument xmlDoc = new XmlDocument();
@@ -151,7 +153,11 @@ namespace Kenshi_Mod_Manager
                     foreach (XmlNode v in xmlE.ChildNodes)
                     {
                         string s = v.Name;
-                        if (s == "id") { id = v.InnerText; }
+                        if (s == "id")
+                        {
+                            if (v.InnerText != directoryName) { goto CONTINUE_OUTER_LOOP; }
+                            id = v.InnerText;
+                        }
                         if (s == "title") { modTitle = v.InnerText; }
                         if (s == "tags")
                         {
@@ -172,11 +178,11 @@ namespace Kenshi_Mod_Manager
                         displayName: modTitle,
                         fileName: modFileName,
                         image: image,
-                        categories: modCategories.ToArray(),
-                        source: ModSource.Steam
+                        categories: modCategories.ToArray()
                         );
 
                     modEntries.Add(modEntry);
+                CONTINUE_OUTER_LOOP:;
                 }
                 catch { continue; }
             }
@@ -227,7 +233,7 @@ namespace Kenshi_Mod_Manager
             Label modFileNameLabel = new Label();
             Label modNameLabel = new Label();
             Label modCategoryLabel = new Label();
-            Label modSourceLabel = new Label();
+            Label modIDLabel = new Label();
             Button modStateButton = new Button();
 
             RowStyle rowStyle = new RowStyle(SizeType.Absolute, 50.0f);
@@ -239,11 +245,9 @@ namespace Kenshi_Mod_Manager
             modNameLabel.Text = modEntry.DisplayName;
             modFileNameLabel.Text = modEntry.FileName;
             modCategoryLabel.Text = modEntry.GetCategoriesString();
-            modSourceLabel.Text = modEntry.Source.ToString();
+            modIDLabel.Text = modEntry.Id;
             modStateButton.Text = "Toggle";
             modPictureBox.Image = modEntry.Image;
-
-            ((System.ComponentModel.ISupportInitialize)(modPictureBox)).BeginInit();
 
             #region spam
             // 
@@ -251,7 +255,7 @@ namespace Kenshi_Mod_Manager
             // 
             modEntryTableLayoutPanel.Controls.Add(modPanel, 0, rowIndex);
             modEntryTableLayoutPanel.Controls.Add(modCategoryLabel, 1, rowIndex);
-            modEntryTableLayoutPanel.Controls.Add(modSourceLabel, 2, rowIndex);
+            modEntryTableLayoutPanel.Controls.Add(modIDLabel, 2, rowIndex);
             modEntryTableLayoutPanel.Controls.Add(modStateButton, 3, rowIndex);
             // modPanel
             modPanel.Controls.Add(modTableLayoutPanel);
@@ -337,15 +341,15 @@ namespace Kenshi_Mod_Manager
             modCategoryLabel.TabIndex = 6;
             modCategoryLabel.TextAlign = ContentAlignment.MiddleLeft;
             // modSourceLabel
-            modSourceLabel.BackColor = Color.FromArgb(51, 51, 51);
-            modSourceLabel.Dock = DockStyle.Fill;
-            modSourceLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            modSourceLabel.ForeColor = Color.FromArgb(242, 242, 242);
-            modSourceLabel.Location = new Point(495, 60);
-            modSourceLabel.Margin = new Padding(0);
-            modSourceLabel.Size = new Size(100, 50);
-            modSourceLabel.TabIndex = 7;
-            modSourceLabel.TextAlign = ContentAlignment.MiddleLeft;
+            modIDLabel.BackColor = Color.FromArgb(51, 51, 51);
+            modIDLabel.Dock = DockStyle.Fill;
+            modIDLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            modIDLabel.ForeColor = Color.FromArgb(242, 242, 242);
+            modIDLabel.Location = new Point(495, 60);
+            modIDLabel.Margin = new Padding(0);
+            modIDLabel.Size = new Size(100, 50);
+            modIDLabel.TabIndex = 7;
+            modIDLabel.TextAlign = ContentAlignment.MiddleLeft;
             // modStateButton
             modStateButton.Dock = DockStyle.Fill;
             modStateButton.FlatAppearance.BorderColor = Color.FromArgb(80, 80, 80);
@@ -357,9 +361,12 @@ namespace Kenshi_Mod_Manager
             modStateButton.Size = new Size(100, 50);
             modStateButton.TabIndex = 8;
             modStateButton.UseVisualStyleBackColor = true;
+            modStateButton.Click += new EventHandler(modStateButton_Click);
             #endregion
+        }
 
-            ((System.ComponentModel.ISupportInitialize)(modPictureBox)).EndInit();
+        private void modStateButton_Click(object sender, EventArgs e)
+        {
         }
 
         private void activeModsButton_Click(object sender, EventArgs e)
