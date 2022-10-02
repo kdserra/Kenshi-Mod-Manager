@@ -133,7 +133,6 @@ namespace Kenshi_Mod_Manager
             }
 
             List<ModEntry> modEntries = new List<ModEntry>() { };
-            string steamCommunityFileIDURL = "https://steamcommunity.com/sharedfiles/filedetails/?id=";
             string[] subDirectories = Directory.GetDirectories(modDirectoryPath);
             foreach (string subDirectory in subDirectories)
             {
