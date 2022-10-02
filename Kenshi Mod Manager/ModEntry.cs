@@ -4,20 +4,23 @@ namespace Kenshi_Mod_Manager
 {
     public class ModEntry
     {
-        public readonly string Name;
+        public readonly string Id;
+        public readonly string DisplayName;
         public readonly string FileName;
         public readonly Image Image;
         public readonly string[] Categories;
         public readonly ModSource Source;
 
         public ModEntry(
-            string name,
+            string id,
+            string displayName,
             string fileName,
             Image image,
             string[] categories,
             ModSource source)
         {
-            Name = name;
+            Id = id;
+            DisplayName = displayName;
             FileName = fileName;
             Image = image;
             Categories = categories;

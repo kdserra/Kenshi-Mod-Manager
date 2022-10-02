@@ -46,10 +46,7 @@ namespace Kenshi_Mod_Manager
                 Regex workshopItemPreviewImageMainFilter = new Regex(@"(?<=workshopItemPreviewImageMain src="")https:\/\/steamuserimages-a.akamaihd.net\/ugc\/[0-9]*\/\w+\/");
                 Regex previewImageMainFilter = new Regex(@"(?<=workshopItemPreviewImageEnlargeable src="")https:\/\/steamuserimages-a.akamaihd.net/ugc/[0-9]+/\w+/");
                 string imageURL = workshopItemPreviewImageMainFilter.Match(doc.ActiveElement.OuterHtml).ToString();
-                if (imageURL == "")
-                {
-                    imageURL = previewImageMainFilter.Match(doc.ActiveElement.OuterHtml).ToString();
-                }
+                if (imageURL == "") { imageURL = previewImageMainFilter.Match(doc.ActiveElement.OuterHtml).ToString(); }
                 if (imageURL == "") { imageURL = "https://community.cloudflare.steamstatic.com/public/images/sharedfiles/steam_workshop_default_image.png"; }
                 Image image = Utilities.GetImage(imageURL);
                 return image;

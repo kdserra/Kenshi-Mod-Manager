@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,17 @@ namespace Kenshi_Mod_Manager
         private List<ModEntry> m_ActiveModEntryList = new List<ModEntry>() { };
         private List<ModEntry> m_InactiveModEntryList = new List<ModEntry>() { };
         private ActiveTab m_CurrentActiveTab = ActiveTab.ActiveMods;
+
+        public List<ModEntry> AllModEntriesList
+        {
+            get
+            {
+                List<ModEntry> allModEntriesList = new List<ModEntry>() { };
+                allModEntriesList.AddRange(m_ActiveModEntryList);
+                allModEntriesList.AddRange(m_InactiveModEntryList);
+                return allModEntriesList;
+            }
+        }
 
         public ActiveTab CurrentActiveTab
         {
@@ -56,6 +68,7 @@ namespace Kenshi_Mod_Manager
         {
             m_InactiveModEntryList = await FetchModsFromDisk();
             SyncModEntryTable();
+            CacheModIcons();
         }
 
         private void AddToModEntryTable(ModEntry modEntry)
@@ -71,7 +84,40 @@ namespace Kenshi_Mod_Manager
             return removed;
         }
 
-        private static async Task<List<ModEntry>> FetchModsFromDisk()
+        private string GetModIconCacheDirectory()
+        {
+            return Path.Combine(Application.StartupPath, "ModIconCache");
+        }
+
+        private void CacheModIcons()
+        {
+            foreach (ModEntry modEntry in AllModEntriesList)
+            {
+                if (modEntry.Image == null) { continue; }
+                if (IsModIconCached(modEntry.Id)) { continue; }
+                string dir = GetModIconCacheDirectory();
+                if (!Directory.Exists(dir)) { Directory.CreateDirectory(dir); }
+                string imageFilePath = Path.Combine(dir, modEntry.Id + ".png");
+                modEntry.Image.Save(imageFilePath, ImageFormat.Png);
+            }
+        }
+
+        private bool IsModIconCached(string id)
+        {
+            string filePath = Path.Combine(GetModIconCacheDirectory(), id + ".png");
+            bool isModIconCached = File.Exists(filePath);
+            return isModIconCached;
+        }
+
+        private Image GetCachedModIcon(string id)
+        {
+            string filePath = Path.Combine(GetModIconCacheDirectory(), id + ".png");
+            if (!File.Exists(filePath)) { return null; }
+            Image image = Image.FromFile(filePath);
+            return image;
+        }
+
+        private async Task<List<ModEntry>> FetchModsFromDisk()
         {
             string modDirectoryPath = Settings.Default.KENSHI_MOD_DIRECTORY;
 
@@ -83,7 +129,7 @@ namespace Kenshi_Mod_Manager
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                     );
-                return new List<ModEntry>(){ };
+                return new List<ModEntry>() { };
             }
 
             List<ModEntry> modEntries = new List<ModEntry>() { };
@@ -116,12 +162,15 @@ namespace Kenshi_Mod_Manager
                             }
                         }
                     }
-                    Image image = await Utilities.GetSteamWorkshopThumbnail(id);
+
+                    Image image = GetCachedModIcon(id);
+                    if (image == null) { image = await Utilities.GetSteamWorkshopThumbnail(id); }
                     if (image == null) { continue; }
                     string modFileName = Path.GetFileNameWithoutExtension(fileName)[1..] + ".mod";
 
                     ModEntry modEntry = new ModEntry(
-                        name: modTitle,
+                        id: id,
+                        displayName: modTitle,
                         fileName: modFileName,
                         image: image,
                         categories: modCategories.ToArray(),
@@ -188,7 +237,7 @@ namespace Kenshi_Mod_Manager
             int rowIndex = modEntryTableLayoutPanel.AddRow(rowStyle);
             modEntryTableLayoutPanel.AddRow(fillRowStyle);
 
-            modNameLabel.Text = modEntry.Name;
+            modNameLabel.Text = modEntry.DisplayName;
             modFileNameLabel.Text = modEntry.FileName;
             modCategoryLabel.Text = modEntry.GetCategoriesString();
             modSourceLabel.Text = modEntry.Source.ToString();
