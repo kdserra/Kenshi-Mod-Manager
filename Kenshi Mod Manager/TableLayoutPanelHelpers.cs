@@ -20,11 +20,6 @@ namespace Kenshi_Mod_Manager
             return table.ColumnCount - 1;
         }
 
-        public static void RemoveLastRow(this TableLayoutPanel table)
-        {
-            table.RemoveRow(table.RowCount - 1);
-        }
-
         public static void RemoveRow(this TableLayoutPanel table, int index)
         {
             if (index >= table.RowCount)

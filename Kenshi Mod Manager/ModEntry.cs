@@ -1,4 +1,10 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace Kenshi_Mod_Manager
 {
@@ -7,19 +13,25 @@ namespace Kenshi_Mod_Manager
         public readonly string Id;
         public readonly string DisplayName;
         public readonly string FileName;
+        public readonly string ModInfoName;
         public readonly Image Image;
         public readonly string[] Categories;
+        public readonly string KenshiFormatModFileName;
 
         public ModEntry(
             string id,
             string displayName,
             string fileName,
+            string modInfoName,
+            string kenshiFormatModFileName,
             Image image,
             string[] categories)
         {
             Id = id;
             DisplayName = displayName;
             FileName = fileName;
+            ModInfoName = modInfoName;
+            KenshiFormatModFileName = kenshiFormatModFileName;
             Image = image;
             Categories = categories;
         }
@@ -39,5 +51,4 @@ namespace Kenshi_Mod_Manager
             return output;
         }
     }
-
 }
