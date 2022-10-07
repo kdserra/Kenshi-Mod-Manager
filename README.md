@@ -52,6 +52,11 @@ Tool to manage your mods for Kenshi.
  Changes made: Resized to 100x100, changed color, removed text, aligned to
  center.
 
+- [empty by MRK from Noun Project](https://thenounproject.com/icon/empty-2443778/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
+
+ Changes made: Resized to 100x100, changed color, removed text, aligned to
+ center.
+
 ## License
 
 Kenshi Mod Manager is [MIT licensed](./LICENSE).
