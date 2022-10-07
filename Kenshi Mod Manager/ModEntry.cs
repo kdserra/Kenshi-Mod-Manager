@@ -36,6 +36,19 @@ namespace Kenshi_Mod_Manager
             Categories = categories;
         }
 
+        public Tag[] GetModTags()
+        {
+            Tag[] tags = new Tag[Categories.Length];
+            for (int i = 0; i < Categories.Length; i++)
+            {
+                string category = Categories[i];
+                Tag? tag = Utilities.GetTagFromString(category);
+                if (tag == null) { continue; }
+                tags[i] = (Tag)tag;
+            }
+            return tags;
+        }
+
         public string GetCategoriesString()
         {
             string output = "";

@@ -4,7 +4,6 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +11,79 @@ namespace Kenshi_Mod_Manager
 {
     public static class Utilities
     {
+
+        public static string GetStringFromTag(Tag tag)
+        {
+            switch (tag)
+            {
+                case Tag.Characters:
+                    return "Characters";
+                case Tag.Buildings:
+                    return "Buildings";
+                case Tag.Gameplay:
+                    return "Gameplay";
+                case Tag.Cheats:
+                    return "Cheats";
+                case Tag.Clothing_Or_Armour:
+                    return "Clothing/Armour";
+                case Tag.Factions:
+                    return "Factions";
+                case Tag.Translation:
+                    return "Translation";
+                case Tag.Items_Or_Weapons:
+                    return "Items/Weapons";
+                case Tag.Research:
+                    return "Research";
+                case Tag.Graphical:
+                    return "Graphical";
+                case Tag.Total_Overhaul:
+                    return "Total Overhaul";
+                case Tag.Races:
+                    return "Races";
+                case Tag.GUI:
+                    return "GUI";
+                default:
+                    return "None";
+            }
+        }
+
+        public static Tag? GetTagFromString(string str)
+        {
+            switch (str)
+            {
+                case "Characters":
+                    return Tag.Characters;
+                case "Buildings":
+                    return Tag.Buildings;
+                case "Gameplay":
+                    return Tag.Gameplay;
+                case "Cheats":
+                    return Tag.Cheats;
+                case "Clothing/Armour":
+                    return Tag.Clothing_Or_Armour;
+                case "Factions":
+                    return Tag.Factions;
+                case "Translation":
+                    return Tag.Translation;
+                case "Items/Weapons":
+                    return Tag.Items_Or_Weapons;
+                case "Research":
+                    return Tag.Research;
+                case "Graphical":
+                    return Tag.Graphical;
+                case "Total Overhaul":
+                    return Tag.Total_Overhaul;
+                case "Races":
+                    return Tag.Races;
+                case "GUI":
+                    return Tag.GUI;
+                case "None":
+                    return Tag.None;
+                default:
+                    return Tag.None;
+            }
+        }
+
         public static Image Resize(this Image image, Size size)
         {
             Image resizedImage = new Bitmap(image, size);

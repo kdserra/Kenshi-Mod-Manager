@@ -122,7 +122,7 @@ namespace Kenshi_Mod_Manager
         {
             string filePath = Path.Combine(GetModIconCacheDirectory(), id + ".png");
             if (!File.Exists(filePath)) { return null; }
-            Image image = Image.FromFile(filePath).Resize(new Size(100,100));
+            Image image = Image.FromFile(filePath).Resize(new Size(100, 100));
             return image;
         }
 
@@ -503,8 +503,44 @@ namespace Kenshi_Mod_Manager
             File.WriteAllText(kenshiModConfigFilePath, fileContent);
         }
 
+        public List<ModEntry> GetModsWithTags(List<ModEntry> modEntryList, params Tag[] tags)
+        {
+            List<ModEntry> output = new List<ModEntry>() { };
+            foreach (Tag tag in tags)
+            {
+                foreach (ModEntry modEntry in modEntryList)
+                {
+                    if (output.Contains(modEntry)) { continue; }
+                    Tag[] modEntryTags = modEntry.GetModTags();
+                    if (!modEntryTags.Contains(tag)) { continue; }
+                    output.Add(modEntry);
+                }
+            }
+            output.AddRange(modEntryList.Except(output).ToList());
+            return output;
+        }
+
         private void orderModsButton_Click(object sender, EventArgs e)
         {
+            if (CurrentActiveTab != ActiveTab.ActiveMods) { return; }
+            List<ModEntry> orderedMods = GetModsWithTags(m_ActiveModEntryList,
+                Kenshi_Mod_Manager.Tag.GUI,
+                Kenshi_Mod_Manager.Tag.Graphical,
+                Kenshi_Mod_Manager.Tag.Gameplay,
+                Kenshi_Mod_Manager.Tag.Research,
+                Kenshi_Mod_Manager.Tag.Cheats,
+                Kenshi_Mod_Manager.Tag.Races,
+                Kenshi_Mod_Manager.Tag.Characters,
+                Kenshi_Mod_Manager.Tag.Factions,
+                Kenshi_Mod_Manager.Tag.Buildings,
+                Kenshi_Mod_Manager.Tag.Clothing_Or_Armour,
+                Kenshi_Mod_Manager.Tag.Items_Or_Weapons,
+                Kenshi_Mod_Manager.Tag.Total_Overhaul,
+                Kenshi_Mod_Manager.Tag.Translation,
+                Kenshi_Mod_Manager.Tag.None
+            );
+            m_ActiveModEntryList = orderedMods;
+            SyncModEntryTable();
         }
 
         private async void refreshButton_Click(object sender, EventArgs e)
