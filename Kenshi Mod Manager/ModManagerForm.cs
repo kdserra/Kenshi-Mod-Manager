@@ -122,7 +122,7 @@ namespace Kenshi_Mod_Manager
         {
             string filePath = Path.Combine(GetModIconCacheDirectory(), id + ".png");
             if (!File.Exists(filePath)) { return null; }
-            Image image = Image.FromFile(filePath);
+            Image image = Image.FromFile(filePath).Resize(new Size(100,100));
             return image;
         }
 

@@ -12,6 +12,13 @@ namespace Kenshi_Mod_Manager
 {
     public static class Utilities
     {
+        public static Image Resize(this Image image, Size size)
+        {
+            Image resizedImage = new Bitmap(image, size);
+            image.Dispose();
+            return resizedImage;
+        }
+
         public static string[] GetFiles(string path, Regex regex, SearchOption searchOption)
         {
             string[] allFilePaths = Directory.GetFiles(path, ".", searchOption);
