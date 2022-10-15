@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Kenshi_Mod_Manager.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -126,6 +128,19 @@ namespace Kenshi_Mod_Manager
             return image;
         }
 
+        private Image GetModIcon(string id, string filePath)
+        {
+            Image modIcon = GetCachedModIcon(id);
+            if (modIcon != null) { return modIcon; }
+
+            if (!File.Exists(filePath)) { return null; }
+            modIcon = Image.FromFile(filePath);
+
+            if (modIcon != null) { return modIcon; }
+            modIcon = Resources.black_box;
+            return modIcon;
+        }
+
         private async Task<List<ModEntry>> FetchModsFromDisk()
         {
             string modDirectoryPath = Settings.Default.KENSHI_MOD_DIRECTORY;
@@ -188,10 +203,8 @@ namespace Kenshi_Mod_Manager
                             }
                         }
 
-                        Image image = GetCachedModIcon(id);
-                        if (image == null) { image = await Utilities.GetSteamWorkshopThumbnail(id); }
-                        if (image == null) { continue; }
-
+                        string imageFileName =  Path.Combine(subDirectory, Path.GetFileNameWithoutExtension(fileNames[0]) + ".img");
+                        Image image = GetModIcon(id, imageFileName);
                         kenshiFormatModFileName = Path.GetFileNameWithoutExtension(fileNames[0])[1..] + ".mod";
                         string modFileName = Path.GetFileNameWithoutExtension(fileName)[1..] + ".mod";
 
