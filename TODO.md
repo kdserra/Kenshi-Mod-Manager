@@ -3,6 +3,8 @@
 This file keeps track of major features and improvements planned for this
 project.
 
+- [ ] Add favourites tab
+	- [ ] Add favourites button (end of panel, star icon)
 - [ ] Optimize Manager
 	- [ ] Switch to Data Container Layout instead of Table
 - [ ] Add manual ordering
