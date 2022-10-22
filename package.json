@@ -4,9 +4,10 @@
   "description": "Tool to manage your mods for Kenshi.",
   "main": "./dist/main.js",
   "scripts": {
-    "clean": "rd /s /q dist",
-    "copy": "node ./tools/copy-distribution-files.js ./dist/",
+    "clean": "rd /s /q dist && rd /s /q publish",
+    "copy": "node ./tools/copy-distribution-files.js",
     "build": "npm run clean && tsc && npm run copy",
+    "publish": "npm run build && electron-builder",
     "start": "npm run build && electron .",
     "dev": "npm run build && concurrently \"tsc -w\" \"electron .\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,6 +29,22 @@
   "homepage": "https://github.com/kdserra/Kenshi-Mod-Manager#readme",
   "devDependencies": {
     "electron": "^21.2.0",
+    "electron-builder": "^23.6.0",
     "typescript": "^4.8.4"
+  },
+  "build": {
+    "appId": "com.kdserra.kenshi-mod-manager",
+    "productName": "Kenshi Mod Manager",
+    "files": [
+      "dist",
+      "node_modules",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    }
+  },
+  "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1"
   }
 }

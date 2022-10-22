@@ -78,5 +78,5 @@ typings/
 # Distribution files
 dist
 
-# Build files
-build
+# Release files
+release
