@@ -11,7 +11,7 @@ const createWindow = () => {
     resizable: true,
   });
 
-  win.loadFile("./dist/public/main.html");
+  win.loadFile("./public/main.html");
 };
 
 app.whenReady().then(() => {
