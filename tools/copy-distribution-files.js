@@ -5,7 +5,6 @@ const destDir = "./dist/public";
 
 try {
   fse.copySync(srcDir, destDir, { overwrite: true | false });
-  console.log("success!");
 } catch (err) {
   console.error(err);
 }

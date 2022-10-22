@@ -8,6 +8,7 @@
     "copy": "node ./tools/copy-distribution-files.js ./dist/",
     "build": "npm run clean && tsc && npm run copy",
     "start": "npm run build && electron .",
+    "dev": "npm run build && concurrently \"tsc -w\" \"electron .\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

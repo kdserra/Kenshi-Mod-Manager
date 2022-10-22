@@ -1,10 +1,14 @@
-const { app, BrowserWindow } = require("electron");
+import { app, BrowserWindow } from "electron";
+import electronReload from "electron-reload";
+electronReload(__dirname, {});
 
 const createWindow = () => {
   const win = new BrowserWindow({
     autoHideMenuBar: true,
     width: 800,
     height: 600,
+    title: "Kenshi Mod Manager",
+    resizable: true,
   });
 
   win.loadFile("./dist/public/main.html");
