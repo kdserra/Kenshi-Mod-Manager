@@ -4,10 +4,10 @@
   "description": "Tool to manage your mods for Kenshi.",
   "main": "./dist/main.js",
   "scripts": {
-    "clean": "rd /s /q dist && rd /s /q publish",
+    "clean": "rd /s /q dist && rd /s /q release",
     "copy": "node ./tools/copy-distribution-files.js",
     "build": "npm run clean && tsc && npm run copy",
-    "publish": "npm run build && electron-builder",
+    "release": "npm run build && electron-builder",
     "start": "npm run build && electron .",
     "dev": "npm run build && concurrently \"tsc -w\" \"electron .\"",
     "test": "echo \"Error: no test specified\" && exit 1"
