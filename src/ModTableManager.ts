@@ -3,7 +3,7 @@ import { Mod } from "./Mod";
 import { ModManager } from "./ModManager";
 
 /**
- * Manages the ModTable the user interacts with for managing their mods.
+ * Manages the Mod Table the user interacts with for managing their mods.
  */
 export class ModTableManager {
   public static ClearModTable() {
@@ -13,23 +13,21 @@ export class ModTableManager {
   }
 
   /**
-   * Refreshes the ModTable, this method should only be called when
-   * something changes.
+   * Refreshes the Mod Table, this method should only be called when
+   * a change has been made to the the mod list.
    */
   public static RefreshModTable() {
-    BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
-      "document.getElementById('modTableRoot').innerHTML = '" + ModTableManager.GetModTableString(ModManager.GetAllMods()) + "'"
-    );
+    ModTableManager.DisplayMods(ModManager.GetAllMods());
   }
 
   /**
-   * Forces the Mod Table to display only certain mods.
-   * Be aware: changes to the mod list will force a refresh overriding
-   * changes made.
+   * Displays mods in the Mod Table.
+   * Be aware: changes to the mod list will force a refresh overriding changes made,
+   * and you can only display mods that are currently in the Mod Manager's Mod List.
    */
-  public static ForceDisplayMods(mods: Mod[]) {
+  protected static DisplayMods(mods: Mod[]) {
     BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
-      "document.getElementById('modTableRoot').innerHTML = '" + ModTableManager.GetModTableString(ModManager.GetAllMods()) + "'"
+      `document.getElementById('modTableRoot').innerHTML = '${ModTableManager.GetModTableString(mods)}'`
     );
   }
 
@@ -46,7 +44,7 @@ export class ModTableManager {
   }
 
   /**
-   * Removes a Mod from the ModTable, this is significantly slower
+   * Removes a Mod from the Mod Table, this is significantly slower
    * than RefreshModTable so should only be used if absolutely necessary.
    */
   protected static RemoveModFromModTable(mod: Mod) {
@@ -57,15 +55,21 @@ export class ModTableManager {
     );
   }
 
+  /**
+   * Returns an HTML string representing an entry in the Mod Table.
+   */
   protected static GetModTableEntryString(mod: Mod): string {
     const iconSize: string = "40px";
     const imgSrc: string = "../assets/icon.png";
     const index: number = ModManager.GetAllMods().indexOf(mod);
     if (index == -1) { return ""; }
-    const elementString: string = `<tr><th scope="row">${index + 1}</th><td><img src="${imgSrc}" width="${iconSize}" /><text>${mod.DisplayName}</text></td><td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
-    return elementString;
+    const modTableEntryString: string = `<tr><th scope="row">${index + 1}</th><td><img src="${imgSrc}" width="${iconSize}" /><text>${mod.DisplayName}</text></td><td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
+    return modTableEntryString;
   }
 
+  /**
+   * Returns an HTML string of the provided mods as entries in the Mod Table.
+   */
   protected static GetModTableString(mods: Mod[]): string {
     let modTableString: string = "";
     if (mods == null) { return ""; }
