@@ -2,7 +2,7 @@
   "name": "kenshi-mod-manager",
   "version": "0.1.0",
   "description": "Tool to manage your mods for Kenshi.",
-  "main": "./dist/main.js",
+  "main": "./dist/Main.js",
   "scripts": {
     "build": "tsc",
     "release": "npm run build && electron-builder",

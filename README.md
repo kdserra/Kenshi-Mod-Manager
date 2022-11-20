@@ -2,10 +2,6 @@
  
 Tool to manage your mods for Kenshi.
 
-### Dependencies
-
-- Node JS
-
 ## Attribution
 
 See the [attribution](./ATTRIBUTION.md) file.
