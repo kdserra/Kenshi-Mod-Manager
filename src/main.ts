@@ -19,10 +19,8 @@ const createWindow = () => {
 
   win.loadFile("../public/main.html");
 
-  setTimeout(() => {
-    const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
-    ModManager.AddMods(mods);
-  }, 1000);
+  const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
+  ModManager.AddMods(mods);
 };
 
 app.whenReady().then(() => {
@@ -36,5 +34,3 @@ app.whenReady().then(() => {
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
-
-//Utilities.GetFilesInDirectory("C:/Program Files (x86)/Steam/steamapps/workshop/content/233860/705201966");

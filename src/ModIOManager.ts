@@ -37,8 +37,7 @@ export class ModIOManager {
 
                 if (imgFileName === null || imgFileName === undefined) {
                     imgFileName = ModIOManager.DEFAULT_MISSING_ICON_REPLACEMENT_NAME;
-                    imgFilePath = path.join(__dirname, "..", "assets", ModIOManager.DEFAULT_MISSING_ICON_REPLACEMENT_NAME);
-                    console.log(`Modified ${modFileName}: ${imgFilePath}`);
+                    imgFilePath = path.join(__dirname, "..", "assets", ModIOManager.DEFAULT_MISSING_ICON_REPLACEMENT_NAME).replace(/\\/g, '/');;
                 }
 
                 const mod: Mod = new Mod(

@@ -28,8 +28,6 @@ export class ModTableManager {
    * are currently in the Mod Manager's Mod List.
    */
   protected static DisplayMods(mods: Mod[]) {
-    Utilities.WriteFile("AllMods.json", JSON.stringify(mods, null, "\t"));
-    Utilities.WriteFile("ModTableString.txt", ModTableManager.GetModTableString(mods));
     BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
       `document.getElementById('modTableRoot').innerHTML = '${ModTableManager.GetModTableString(mods)}'`
     );
