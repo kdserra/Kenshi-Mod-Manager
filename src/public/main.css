@@ -3,7 +3,7 @@
 }
 
 .settings-button {
-  background-image: url("../assets/settings-icon.png");
+  background-image: url("../../assets/settings-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: var(--primary-grey-color);
@@ -13,7 +13,7 @@
 }
 
 .new-profile-button {
-  background-image: url("../assets/plus-icon.png");
+  background-image: url("../../assets/plus-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: var(--primary-grey-color);
@@ -22,7 +22,7 @@
 }
 
 .save-profile-button {
-  background-image: url("../assets/save-icon.png");
+  background-image: url("../../assets/save-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: var(--primary-grey-color);
@@ -31,7 +31,7 @@
 }
 
 .open-profile-button {
-  background-image: url("../assets/open-icon.png");
+  background-image: url("../../assets/open-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: var(--primary-grey-color);

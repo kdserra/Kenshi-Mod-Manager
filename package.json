@@ -4,12 +4,11 @@
   "description": "Tool to manage your mods for Kenshi.",
   "main": "./dist/Main.js",
   "scripts": {
-    "build": "tsc",
-    "clean": "node ./tools/remove-folder.js dist release",
-    "post-release-clean": "node ./tools/remove-folder.js dist",
-    "release": "npm run clean && npm run build && electron-builder & npm run post-release-clean",
-    "start": "npm run clean && electron -r ts-node/register ./src/Main.ts",
-    "dev": "npm run clean && electronmon -r ts-node/register ./src/Main.ts --watch",
+    "clean": "node ./tools/remove-folder.js ./dist/ ./package/",
+    "build": "npm run clean && tsc && node ./tools/copy-files.js ./src/public/ ./dist/public/",
+    "package": "npm run clean && npm run build && electron-builder & node ./tools/remove-folder.js ./dist/",
+    "start": "npm run clean && npm run build && electron ./dist/Main.js",
+    "dev": "npm run clean && npm run build && electronmon ./dist/Main.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,9 +29,9 @@
   "devDependencies": {
     "@types/node": "^18.11.9",
     "concurrently": "^7.4.0",
+    "electron": "^21.2.0",
     "electron-builder": "^23.6.0",
     "electronmon": "^2.0.2",
-    "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
     "typescript": "^4.8.4"
   },
@@ -40,16 +39,21 @@
     "appId": "com.kdserra.kenshi-mod-manager",
     "productName": "Kenshi Mod Manager",
     "files": [
+      "assets",
       "dist",
+      "public",
+      "package",
       "node_modules",
       "package.json"
     ],
     "directories": {
-      "output": "release"
-    }
+      "output": "package"
+    },
+    "extraResources": [
+      "./assets/**"
+    ]
   },
   "dependencies": {
-    "electron": "^21.2.0",
     "electron-reload": "^2.0.0-alpha.1"
   }
 }

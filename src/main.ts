@@ -3,6 +3,7 @@ import { ModManager } from "./ModManager";
 import { Mod } from "./Mod";
 import { ModIOManager } from "./ModIOManager";
 import electronReload from "electron-reload";
+import path from "path";
 
 electronReload(__dirname, {});
 
@@ -17,7 +18,7 @@ const createWindow = () => {
     resizable: true,
   });
 
-  win.loadFile("../public/main.html");
+  win.loadFile(path.join(__dirname, "public", "main.html"));
 
   const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
   ModManager.AddMods(mods);
