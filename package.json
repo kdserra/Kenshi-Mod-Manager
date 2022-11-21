@@ -4,9 +4,12 @@
   "description": "Tool to manage your mods for Kenshi.",
   "main": "./dist/Main.js",
   "scripts": {
-    "release": "electron-builder",
-    "start": "electron -r ts-node/register ./src/Main.ts",
-    "dev": "electronmon -r ts-node/register ./src/Main.ts --watch",
+    "build": "tsc",
+    "clean": "node ./tools/remove-folder.js dist release",
+    "post-release-clean": "node ./tools/remove-folder.js dist",
+    "release": "npm run clean && npm run build && electron-builder & npm run post-release-clean",
+    "start": "npm run clean && electron -r ts-node/register ./src/Main.ts",
+    "dev": "npm run clean && electronmon -r ts-node/register ./src/Main.ts --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,9 +30,7 @@
   "devDependencies": {
     "@types/node": "^18.11.9",
     "concurrently": "^7.4.0",
-    "electron": "^21.2.0",
     "electron-builder": "^23.6.0",
-    "electron-reload": "^2.0.0-alpha.1",
     "electronmon": "^2.0.2",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
@@ -46,5 +47,9 @@
     "directories": {
       "output": "release"
     }
+  },
+  "dependencies": {
+    "electron": "^21.2.0",
+    "electron-reload": "^2.0.0-alpha.1"
   }
 }
