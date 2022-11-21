@@ -7,8 +7,8 @@
     "clean": "node ./tools/remove-folder.js ./dist/ ./package/",
     "build": "npm run clean && tsc && node ./tools/copy-files.js ./src/public/ ./dist/public/",
     "package": "npm run clean && npm run build && electron-builder & node ./tools/remove-folder.js ./dist/",
-    "start": "npm run clean && npm run build && electron ./dist/Main.js",
-    "dev": "npm run clean && npm run build && electronmon ./dist/Main.js --watch",
+    "start": "npm run clean && electron -r ts-node/register ./src/Main.ts",
+    "dev": "npm run clean && electronmon -r ts-node/register ./src/Main.ts --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/kdserra/Kenshi-Mod-Manager#readme",
   "devDependencies": {
+    "@types/electron": "^1.6.10",
     "@types/node": "^18.11.9",
     "concurrently": "^7.4.0",
     "electron": "^21.2.0",
@@ -50,10 +51,14 @@
       "output": "package"
     },
     "extraResources": [
-      "./assets/**"
+      {
+        "from": "./assets/",
+        "to": "assets"
+      }
     ]
   },
   "dependencies": {
-    "electron-reload": "^2.0.0-alpha.1"
+    "electron-reload": "^2.0.0-alpha.1",
+    "ts-node": "^10.9.1"
   }
 }
