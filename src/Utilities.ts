@@ -1,4 +1,4 @@
-import { createWriteStream, readdirSync } from "original-fs";
+import * as fs from 'fs';
 
 export class Utilities {
     public static EncodeHTML(str: string): string {
@@ -11,13 +11,8 @@ export class Utilities {
         .replace(/`/g, '&#96;');
     }
 
-    public static ReplaceBadStuff(str: string): string {
-        if (str === null || str === undefined) { return ""; }
-        return str.replaceAll("'", "").replaceAll(`"`, "").replaceAll("`", "");
-    }
-
     public static GetSubdirectories(path: string): string[] {
-        return (readdirSync(path, { withFileTypes: true }))
+        return (fs.readdirSync(path, { withFileTypes: true }))
             .filter(dirent => dirent.isDirectory())
             .map(dirent => dirent.name);
     }
@@ -33,7 +28,7 @@ export class Utilities {
     }
 
     public static WriteFile(fileName: string, data: string) {
-        const stream = createWriteStream(`C:/Users/Kevin/Desktop/${fileName}`);
+        const stream = fs.createWriteStream(`C:/Users/Kevin/Desktop/${fileName}`);
         stream.write(data);
         stream.close();
     }

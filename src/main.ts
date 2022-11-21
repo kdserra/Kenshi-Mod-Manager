@@ -1,8 +1,9 @@
 import { app, BrowserWindow } from "electron";
-import electronReload from "electron-reload";
 import { ModManager } from "./ModManager";
 import { Mod } from "./Mod";
 import { ModIOManager } from "./ModIOManager";
+import electronReload from "electron-reload";
+
 electronReload(__dirname, {});
 
 const createWindow = () => {
@@ -16,10 +17,9 @@ const createWindow = () => {
     resizable: true,
   });
 
-  win.loadFile("./public/main.html");
+  win.loadFile("../public/main.html");
 
   setTimeout(() => {
-    console.log("Fetch & add");
     const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
     ModManager.AddMods(mods);
   }, 1000);

@@ -4,10 +4,9 @@
   "description": "Tool to manage your mods for Kenshi.",
   "main": "./dist/Main.js",
   "scripts": {
-    "build": "tsc",
-    "release": "npm run build && electron-builder",
-    "start": "npm run build && electron .",
-    "dev": "npm run build && concurrently \"tsc -w\" \"electronmon .\"",
+    "release": "electron-builder",
+    "start": "electron -r ts-node/register ./src/Main.ts",
+    "dev": "electronmon -r ts-node/register ./src/Main.ts --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,9 +25,14 @@
   },
   "homepage": "https://github.com/kdserra/Kenshi-Mod-Manager#readme",
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "concurrently": "^7.4.0",
+    "electron": "^21.2.0",
     "electron-builder": "^23.6.0",
+    "electron-reload": "^2.0.0-alpha.1",
     "electronmon": "^2.0.2",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.1",
     "typescript": "^4.8.4"
   },
   "build": {
@@ -42,9 +46,5 @@
     "directories": {
       "output": "release"
     }
-  },
-  "dependencies": {
-    "electron": "^21.2.0",
-    "electron-reload": "^2.0.0-alpha.1"
   }
 }
