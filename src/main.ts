@@ -11,15 +11,14 @@ const createWindow = () => {
   const win = new BrowserWindow({
     autoHideMenuBar: false,
     width: 1015,
-    height: 900,
-    minWidth: 900,
-    minHeight: 900,
+    height: 1015,
+    minWidth: 1015,
+    minHeight: 1015,
     title: "Kenshi Mod Manager",
     resizable: true,
   });
 
   win.loadFile(path.join(__dirname, "public", "main.html"));
-
   const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
   ModManager.AddMods(mods);
 };

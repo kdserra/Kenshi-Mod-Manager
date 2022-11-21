@@ -28,6 +28,7 @@ export class ModTableManager {
    * are currently in the Mod Manager's Mod List.
    */
   protected static DisplayMods(mods: Mod[]) {
+    Utilities.WriteFile("test.txt", ModTableManager.GetModTableString(mods));
     BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
       `document.getElementById('modTableRoot').innerHTML = '${ModTableManager.GetModTableString(mods)}'`
     );
@@ -61,10 +62,10 @@ export class ModTableManager {
    * Returns an HTML string representing an entry in the Mod Table.
    */
   protected static GetModTableEntryString(mod: Mod): string {
-    const iconSize: string = "40px";
+    const iconSize: number = 40;
     const index: number = ModManager.GetAllMods().indexOf(mod);
     if (index == -1) { return ""; }
-    const modTableEntryString: string = `<tr><th scope="row">${index + 1}</th><td><img src="file://${Utilities.EncodeHTML(mod.ImageFilePath)}" width="${Utilities.EncodeHTML(iconSize)}" /><text>${Utilities.EncodeHTML(mod.DisplayName)}</text></td><td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
+    const modTableEntryString: string = `<tr><th scope="row">${index+1}</th><td><img src="file://${Utilities.EncodeHTML(mod.ImageFilePath)}" width="${iconSize}px" height="${iconSize}px" /><text>${Utilities.EncodeHTML(mod.DisplayName)}</text></td><td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
     return modTableEntryString;
   }
 

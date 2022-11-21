@@ -32,9 +32,7 @@ export class ModIOManager {
                 let imgFilePath: string = subDirectoryPath + "/" + imgFileName;
 
                 if (modFileName === null || modFileName === undefined) { continue; }
-
                 if (infoFileName === null || infoFileName === undefined) { continue; }
-
                 if (imgFileName === null || imgFileName === undefined) {
                     imgFileName = ModIOManager.DEFAULT_MISSING_ICON_REPLACEMENT_NAME;
                     imgFilePath = path.join(__dirname, "..", "assets", ModIOManager.DEFAULT_MISSING_ICON_REPLACEMENT_NAME).replace(/\\/g, '/');;
