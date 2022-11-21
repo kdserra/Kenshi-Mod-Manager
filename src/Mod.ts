@@ -1,14 +1,17 @@
 export class Mod {
   public readonly DisplayName: string;
   public readonly FileName: string;
-  public readonly FilePath: string;
-  public readonly Image: string;
+  public readonly ModFilePath: string;
+  public readonly InfoFilePath: string;
+  public readonly ImageFilePath: string;
+  public Index: number = -1;
   public Active: boolean = false;
 
-  constructor(displayName: string, filename: string, filepath: string, image: string) {
+  constructor(displayName: string, fileName: string, modFilePath: string, infoFilePath:string, imageFilePath: string) {
     this.DisplayName = displayName;
-    this.FileName = filename;
-    this.FilePath = filepath;
-    this.Image = image;
+    this.FileName = fileName;
+    this.ModFilePath = modFilePath;
+    this.InfoFilePath = infoFilePath;
+    this.ImageFilePath = imageFilePath;
   }
 }

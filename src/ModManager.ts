@@ -1,12 +1,16 @@
 import { Mod } from "./Mod";
 import { ModTableManager } from "./ModTableManager";
 
+/**
+ * Manages keeping track of the users Mods and providing a way to interact
+ * with them.
+ */
 export class ModManager {
     private static s_ModList: Mod[] = [];
 
     public static IsModInModList(mod: Mod): boolean {
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            if (ModManager.s_ModList[i].FilePath != mod.FilePath) { continue; }
+            if (ModManager.s_ModList[i].ModFilePath != mod.ModFilePath) { continue; }
             return true;
         }
         return false;
@@ -18,6 +22,15 @@ export class ModManager {
         ModTableManager.RefreshModTable();
     }
 
+    public static AddMods(mods: Mod[]) {
+        for (let i = 0; i < mods.length; i++) {
+            if (ModManager.IsModInModList(mods[i])) { continue; }
+            ModManager.s_ModList.push(mods[i]);
+            mods[i].Index = i;
+        }
+        ModTableManager.RefreshModTable();
+    }
+
     public static RemoveMod(mod: Mod) {
         ModManager.s_ModList = ModManager.s_ModList.filter(e => e !== mod);
         ModTableManager.RefreshModTable();
@@ -25,7 +38,7 @@ export class ModManager {
 
     public static GetModWithFilePath(filePath: string): Mod | null {
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            if (ModManager.s_ModList[i].FilePath != filePath) { continue; }
+            if (ModManager.s_ModList[i].ModFilePath != filePath) { continue; }
             return ModManager.s_ModList[i];
         }
         return null;

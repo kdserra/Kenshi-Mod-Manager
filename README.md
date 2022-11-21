@@ -6,6 +6,12 @@ Tool to manage your mods for Kenshi.
 
 See the [attribution](./ATTRIBUTION.md) file.
 
+# Ideas
+- Filters
+    - Search Bar
+    - Show only active mods
+    - Show only inactive mods
+
 ## License
 
 Kenshi Mod Manager is [MIT licensed](./LICENSE).

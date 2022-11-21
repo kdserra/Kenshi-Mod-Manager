@@ -1,20 +1,9 @@
 import { app, BrowserWindow } from "electron";
 import electronReload from "electron-reload";
-import { Mod } from "./Mod";
 import { ModManager } from "./ModManager";
-import { ModTableManager } from "./ModTableManager";
+import { Mod } from "./Mod";
+import { ModIOManager } from "./ModIOManager";
 electronReload(__dirname, {});
-
-function GenerateRandomString(length: number): string {
-  var result = '';
-  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-}
-
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -28,6 +17,12 @@ const createWindow = () => {
   });
 
   win.loadFile("./public/main.html");
+
+  setTimeout(() => {
+    console.log("Fetch & add");
+    const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
+    ModManager.AddMods(mods);
+  }, 1000);
 };
 
 app.whenReady().then(() => {
@@ -42,4 +37,4 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
-console.clear();
+//Utilities.GetFilesInDirectory("C:/Program Files (x86)/Steam/steamapps/workshop/content/233860/705201966");

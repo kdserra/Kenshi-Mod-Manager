@@ -1,6 +1,7 @@
 import { BrowserWindow } from "electron";
 import { Mod } from "./Mod";
 import { ModManager } from "./ModManager";
+import { Utilities } from "./Utilities";
 
 /**
  * Manages the Mod Table the user interacts with for managing their mods.
@@ -22,10 +23,13 @@ export class ModTableManager {
 
   /**
    * Displays mods in the Mod Table.
-   * Be aware: changes to the mod list will force a refresh overriding changes made,
-   * and you can only display mods that are currently in the Mod Manager's Mod List.
+   * Be aware: changes to the Mod Manager's mod list will force a refresh overriding
+   * any changes made to the Mod Table. Additionally, you can only display mods that
+   * are currently in the Mod Manager's Mod List.
    */
   protected static DisplayMods(mods: Mod[]) {
+    Utilities.WriteFile("AllMods.json", JSON.stringify(mods, null, "\t"));
+    Utilities.WriteFile("ModTableString.txt", ModTableManager.GetModTableString(mods));
     BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
       `document.getElementById('modTableRoot').innerHTML = '${ModTableManager.GetModTableString(mods)}'`
     );
@@ -60,10 +64,9 @@ export class ModTableManager {
    */
   protected static GetModTableEntryString(mod: Mod): string {
     const iconSize: string = "40px";
-    const imgSrc: string = "../assets/icon.png";
     const index: number = ModManager.GetAllMods().indexOf(mod);
     if (index == -1) { return ""; }
-    const modTableEntryString: string = `<tr><th scope="row">${index + 1}</th><td><img src="${imgSrc}" width="${iconSize}" /><text>${mod.DisplayName}</text></td><td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
+    const modTableEntryString: string = `<tr><th scope="row">${index + 1}</th><td><img src="file://${Utilities.EncodeHTML(mod.ImageFilePath)}" width="${Utilities.EncodeHTML(iconSize)}" /><text>${Utilities.EncodeHTML(mod.DisplayName)}</text></td><td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
     return modTableEntryString;
   }
 
