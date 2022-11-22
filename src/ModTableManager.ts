@@ -31,16 +31,6 @@ export class ModTableManager {
     BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
       `document.getElementById('modTableRoot').innerHTML = '${ModTableManager.GetModTableString(mods)}'`
     );
-    /*
-    for (let i = 0; i < mods.length; i++) {
-      const mod: Mod = mods[i];
-      const modTableEntryRootID: string = `modTableEntryRoot${mod.Guid}`;
-      const modTableEntryInputID: string = `modTableEntryInput${mod.Guid}`;
-      BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
-        `document.getElementById('${modTableEntryInputID}').addEventListener("click", "console.log("Hello World!"));'`
-      );
-    }
-    */
   }
 
   /**

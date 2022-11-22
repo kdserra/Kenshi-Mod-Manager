@@ -4,7 +4,6 @@ import { Mod } from "./Mod";
 import { ModIOManager } from "./ModIOManager";
 import electronReload from "electron-reload";
 import path from "path";
-import { Utilities } from "./Utilities";
 
 electronReload(__dirname, {});
 
