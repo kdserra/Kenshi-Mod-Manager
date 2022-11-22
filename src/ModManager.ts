@@ -62,20 +62,26 @@ export class ModManager {
         return output;
     }
 
-    public static GetFirstModWithName(name: string): Mod | null {
+    public static GetModsContainingDisplayName(displayName: string, ignoreCase: boolean = false): Mod[] {
+        let output: Mod[] = [];
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            if (ModManager.s_ModList[i].DisplayName != name) { continue; }
-            return ModManager.s_ModList[i];
+            let modDisplayName:string = ModManager.s_ModList[i].DisplayName;
+            if (ignoreCase) { modDisplayName = modDisplayName.toLowerCase(); }
+            if (!modDisplayName.includes(displayName)) { continue; }
+            output.push(ModManager.s_ModList[i]);
         }
-        return null;
+        return output;
     }
 
-    public static GetFirstModWithFileName(fileName: string): Mod | null {
+    public static GetModsContainingFileName(fileName: string, ignoreCase: boolean = false): Mod[] {
+        let output: Mod[] = [];
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            if (ModManager.s_ModList[i].FileName != fileName) { continue; }
-            return ModManager.s_ModList[i];
+            let modFileName:string = ModManager.s_ModList[i].FileName;
+            if (ignoreCase) { modFileName = modFileName.toLowerCase(); }
+            if (!modFileName.includes(fileName)) { continue; }
+            output.push(ModManager.s_ModList[i]);
         }
-        return null;
+        return output;
     }
 
     public static GetAllMods(): Mod[] {

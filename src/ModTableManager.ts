@@ -28,10 +28,19 @@ export class ModTableManager {
    * are currently in the Mod Manager's Mod List.
    */
   protected static DisplayMods(mods: Mod[]) {
-    Utilities.WriteFile("test.txt", ModTableManager.GetModTableString(mods));
     BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
       `document.getElementById('modTableRoot').innerHTML = '${ModTableManager.GetModTableString(mods)}'`
     );
+    /*
+    for (let i = 0; i < mods.length; i++) {
+      const mod: Mod = mods[i];
+      const modTableEntryRootID: string = `modTableEntryRoot${mod.Guid}`;
+      const modTableEntryInputID: string = `modTableEntryInput${mod.Guid}`;
+      BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
+        `document.getElementById('${modTableEntryInputID}').addEventListener("click", "console.log("Hello World!"));'`
+      );
+    }
+    */
   }
 
   /**
@@ -65,7 +74,7 @@ export class ModTableManager {
     const iconSize: number = 40;
     const index: number = ModManager.GetAllMods().indexOf(mod);
     if (index == -1) { return ""; }
-    const modTableEntryString: string = `<tr><th scope="row">${index+1}</th><td><img src="file://${Utilities.EncodeHTML(mod.ImageFilePath)}" width="${iconSize}px" height="${iconSize}px" /><text>${Utilities.EncodeHTML(mod.DisplayName)}</text></td><td><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
+    const modTableEntryString: string = `<tr id="modTableEntryRoot${mod.Guid}"><th scope="row">${index + 1}</th><td><img src="${Utilities.EncodeURL(mod.ImageFilePath)}" width="${iconSize}px" height="${iconSize}px" /><text>${Utilities.EncodeHTMLEntity(mod.DisplayName)}</text></td><td><div class="form-check form-switch"><input i.d="modTableEntryInput${mod.Guid}" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
     return modTableEntryString;
   }
 

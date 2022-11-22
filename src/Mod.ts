@@ -1,9 +1,12 @@
+import { Guid } from "./Guid";
+
 export class Mod {
   public readonly DisplayName: string;
   public readonly FileName: string;
   public readonly ModFilePath: string;
   public readonly InfoFilePath: string;
   public readonly ImageFilePath: string;
+  public readonly Guid: string;
   public Index: number = -1;
   public Active: boolean = false;
 
@@ -13,5 +16,6 @@ export class Mod {
     this.ModFilePath = modFilePath;
     this.InfoFilePath = infoFilePath;
     this.ImageFilePath = imageFilePath;
+    this.Guid = Guid.New();
   }
 }

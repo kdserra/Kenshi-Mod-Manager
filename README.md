@@ -7,6 +7,10 @@ Tool to manage your mods for Kenshi.
 See the [attribution](./ATTRIBUTION.md) file.
 
 # Ideas
+- MVP
+    - Track mod state changes to Mod.Active
+    - Save Mods to Kenshi
+    - Profiles
 - Filters
     - Search Bar
     - Show only active mods
