@@ -1,4 +1,4 @@
-import { BrowserWindow } from "electron";
+import { BrowserWindow, ipcRenderer } from "electron";
 import { Mod } from "./Mod";
 import { ModManager } from "./ModManager";
 import { Utilities } from "./Utilities";
@@ -34,27 +34,20 @@ export class ModTableManager {
   }
 
   /**
-   * Adds a Mod to the end of the ModTable, this is significantly slower
-   * than RefreshModTable so should only be used if absolutely necessary.
+   * TODO: Finish this.
+   * Registers the events to all Mod Table Entries to provide functionality.
    */
-  protected static AddModToModTable(mod: Mod) {
-    const displayModTable: Mod[] = ModManager.GetAllMods();
-    displayModTable.push(mod);
-    BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
-      `document.getElementById('modTableRoot').innerHTML = '${ModTableManager.GetModTableString(displayModTable)}'`
-    );
-  }
-
-  /**
-   * Removes a Mod from the Mod Table, this is significantly slower
-   * than RefreshModTable so should only be used if absolutely necessary.
-   */
-  protected static RemoveModFromModTable(mod: Mod) {
-    const displayModTable: Mod[] = ModManager.GetAllMods();
-    displayModTable.push(mod);
-    BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
-      `document.getElementById('modTableRoot').innerHTML = '${ModTableManager.GetModTableString(displayModTable)}'`
-    );
+  protected static RegisterEventListeners() {
+    /*
+    const mods: Mod[] = ModManager.GetAllMods();
+    for (let i = 0; i < mods.length; i++) {
+      if (!ModManager.IsModInModList(mods[i])) { continue; }
+      const mod: Mod = mods[i];
+      BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
+        `document.getElementById('${ModTableManager.GetModTableEntryInputIDString(mod)}').addEventListener("click", () => { console.log("Hello World!"); });'`
+      ).catch(() => { });
+    }
+    */
   }
 
   /**
@@ -64,7 +57,7 @@ export class ModTableManager {
     const iconSize: number = 40;
     const index: number = ModManager.GetAllMods().indexOf(mod);
     if (index == -1) { return ""; }
-    const modTableEntryString: string = `<tr id="modTableEntryRoot${mod.Guid}"><th scope="row">${index + 1}</th><td><img src="${Utilities.EncodeURL(mod.ImageFilePath)}" width="${iconSize}px" height="${iconSize}px" /><text>${Utilities.EncodeHTMLEntity(mod.DisplayName)}</text></td><td><div class="form-check form-switch"><input i.d="modTableEntryInput${mod.Guid}" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"><label class="form-check-label" for="flexSwitchCheckDefault"></label></div></td></tr>`;
+    const modTableEntryString: string = `<tr id="${ModTableManager.GetModTableEntryRootIDString(mod)}"><th scope="row">${index + 1}</th><td><img src="${Utilities.EncodeURL(mod.ImageFilePath)}" width="${iconSize}px" height="${iconSize}px" /><text>${Utilities.EncodeHTMLEntity(mod.DisplayName)}</text></td><td><div class="form-check form-switch"><input id="${ModTableManager.GetModTableEntryInputIDString(mod)}" class="form-check-input" type="checkbox" role="switch"><label class="form-check-label" for="${ModTableManager.GetModTableEntryInputIDString(mod)}"></label></div></td></tr>`;
     return modTableEntryString;
   }
 
@@ -78,5 +71,15 @@ export class ModTableManager {
       modTableString += ModTableManager.GetModTableEntryString(mods[i]);
     }
     return modTableString;
+  }
+
+  protected static GetModTableEntryRootIDString(mod: Mod): string {
+    const modTableEntryRootID: string = `modTableEntryRoot${mod.Guid.ToString()}`;
+    return modTableEntryRootID;
+  }
+
+  protected static GetModTableEntryInputIDString(mod: Mod): string {
+    const modTableEntryInputID: string = `modTableEntryInput${mod.Guid.ToString()}`;
+    return modTableEntryInputID;
   }
 }

@@ -6,7 +6,7 @@ export class Mod {
   public readonly ModFilePath: string;
   public readonly InfoFilePath: string;
   public readonly ImageFilePath: string;
-  public readonly Guid: string;
+  public readonly Guid: Guid;
   public Index: number = -1;
   public Active: boolean = false;
 

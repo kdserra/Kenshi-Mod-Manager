@@ -5,16 +5,24 @@ import { Utilities } from "./Utilities";
 * the runtime session.
 */
 export class Guid {
-    private static s_RegisteredGuids: string[] = [];
+    protected static s_RegisteredGuids: string[] = [];
+    protected m_Guid:string;
 
-    /**
-    * Returns a Globally Unique Identifier.
-    */
-    public static New(): string {
+    public static New(): Guid {
         while (true) {
             const randomUUID: string = Utilities.GenerateRandomString(32);
             if (Guid.s_RegisteredGuids.includes(randomUUID)) { continue; }
-            return randomUUID;
+            return new Guid(randomUUID);
         }
+    }
+
+    protected constructor(guid:string)
+    {
+        this.m_Guid = guid;
+    }
+
+    public ToString():string
+    {
+        return this.m_Guid;
     }
 }
