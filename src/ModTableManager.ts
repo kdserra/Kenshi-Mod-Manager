@@ -44,7 +44,8 @@ export class ModTableManager {
       if (!ModManager.IsModInModList(mods[i])) { continue; }
       const mod: Mod = mods[i];
       BrowserWindow.getFocusedWindow()?.webContents.executeJavaScript(
-        `document.getElementById('${ModTableManager.GetModTableEntryInputIDString(mod)}').addEventListener("click", () => { console.log("Hello World!"); });'`
+        `document.getElementById('modTableEntryInputExample').addEventListener("click", () => { console.log("Hello World!"); });'`
+        //`document.getElementById('${ModTableManager.GetModTableEntryInputIDString(mod)}').addEventListener("click", () => { console.log("Hello World!"); });'`
       ).catch(() => { });
     }
     */
