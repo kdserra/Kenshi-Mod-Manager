@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import path from 'path';
 import { Mod } from "./Mod";
+import { Tag } from './Tag';
+import { TagHelper } from './TagHelper';
 import { Utilities } from "./Utilities";
 
 /**
@@ -37,13 +39,20 @@ export class ModIOManager {
                     imgFileName = ModIOManager.DEFAULT_MISSING_ICON_REPLACEMENT_NAME;
                     imgFilePath = path.join(__dirname, "..", "assets", ModIOManager.DEFAULT_MISSING_ICON_REPLACEMENT_NAME).replace(/\\/g, '/');;
                 }
+                const infoFileContent: string = fs.readFileSync(infoFilePath, 'utf-8');
+                let modTitle: string | null = Utilities.MatchFirst(infoFileContent, /(?<=\<title\>)(.*?)(?=\<\/title\>)/);
+                let modTagStrings: string[] | null = Utilities.Match(infoFileContent, /(?<=\<string\>)(.*?)(?=\<\/string\>)/g);
+                let modTags: Tag[] = [];
+                if (modTitle === null) { modTitle = modFileName; }
+                if (modTagStrings !== null) { modTags = TagHelper.StringsToTags(modTagStrings); }
 
                 const mod: Mod = new Mod(
-                    modFileName,
-                    modFileName,
+                    modTitle,
                     modFilePath,
                     infoFilePath,
-                    imgFilePath);
+                    imgFilePath,
+                    modTags
+                );
 
                 mods.push(mod);
             }

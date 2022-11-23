@@ -1,0 +1,16 @@
+export enum Tag {
+    Buildings,
+    Characters,
+    Cheats,
+    Clothing_Or_Armour,
+    Environment_Or_Map,
+    Factions,
+    GUI,
+    Gameplay,
+    Graphical,
+    Items_Or_Weapons,
+    Races,
+    Research,
+    Total_Overhaul,
+    Translation,
+}

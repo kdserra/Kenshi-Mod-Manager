@@ -6,23 +6,12 @@ import { Utilities } from "./Utilities";
 */
 export class Guid {
     protected static s_RegisteredGuids: string[] = [];
-    protected m_Guid:string;
 
-    public static New(): Guid {
+    public static New(): string {
         while (true) {
             const randomUUID: string = Utilities.GenerateRandomString(32);
             if (Guid.s_RegisteredGuids.includes(randomUUID)) { continue; }
-            return new Guid(randomUUID);
+            return randomUUID;
         }
-    }
-
-    protected constructor(guid:string)
-    {
-        this.m_Guid = guid;
-    }
-
-    public ToString():string
-    {
-        return this.m_Guid;
     }
 }

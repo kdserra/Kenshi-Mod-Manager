@@ -1,5 +1,6 @@
 import { Mod } from "./Mod";
 import { ModTableManager } from "./ModTableManager";
+import { Tag } from "./Tag";
 
 /**
  * Manages keeping track of the users Mods and providing a way to interact
@@ -10,10 +11,49 @@ export class ModManager {
 
     public static IsModInModList(mod: Mod): boolean {
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            if (ModManager.s_ModList[i].ModFilePath != mod.ModFilePath) { continue; }
+            if (ModManager.s_ModList[i].Guid != mod.Guid) { continue; }
             return true;
         }
         return false;
+    }
+
+    public static OrderMods(mods: Mod[]): Mod[] {
+        const tagLoadOrder: Tag[] = [
+            Tag.GUI,
+            Tag.Graphical,
+            Tag.Races,
+            Tag.Gameplay,
+            Tag.Research,
+            Tag.Cheats,
+            Tag.Characters,
+            Tag.Factions,
+            Tag.Buildings,
+            Tag.Clothing_Or_Armour,
+            Tag.Items_Or_Weapons,
+            Tag.Total_Overhaul,
+            Tag.Translation
+        ]
+        let orderedMods:Mod[] = [];
+        for (let i = tagLoadOrder.length-1; i > 0; i--) {
+            const tag: Tag = tagLoadOrder[i];
+            for (let j = 0; j < mods.length; j++) {
+                const mod: Mod = mods[j];
+                if (!mod.HasTag(tag)) { continue; }
+                if (orderedMods.includes(mod)) { continue; }
+                orderedMods.push(mod);
+            }
+        }
+        return orderedMods;
+    }
+
+    public static SetMods(mods: Mod[]) {
+        ModManager.s_ModList = [];
+        for (let i = 0; i < mods.length; i++) {
+            if (ModManager.IsModInModList(mods[i])) { continue; }
+            ModManager.s_ModList.push(mods[i]);
+            mods[i].Index = i;
+        }
+        ModTableManager.RefreshModTable();
     }
 
     public static AddMod(mod: Mod) {
@@ -36,6 +76,14 @@ export class ModManager {
         ModTableManager.RefreshModTable();
     }
 
+    public static GetModWithGuid(guid: string): Mod | null {
+        for (let i = 0; i < ModManager.s_ModList.length; i++) {
+            if (ModManager.s_ModList[i].Guid != guid) { continue; }
+            return ModManager.s_ModList[i];
+        }
+        return null;
+    }
+
     public static GetModWithFilePath(filePath: string): Mod | null {
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
             if (ModManager.s_ModList[i].ModFilePath != filePath) { continue; }
@@ -47,7 +95,7 @@ export class ModManager {
     public static GetModsWithDisplayName(displayName: string): Mod[] {
         let output: Mod[] = [];
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            if (ModManager.s_ModList[i].DisplayName != displayName) { continue; }
+            if (ModManager.s_ModList[i].Title != displayName) { continue; }
             output.push(ModManager.s_ModList[i]);
         }
         return output;
@@ -56,7 +104,7 @@ export class ModManager {
     public static GetModsWithFileName(fileName: string): Mod[] {
         let output: Mod[] = [];
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            if (ModManager.s_ModList[i].FileName != fileName) { continue; }
+            if (ModManager.s_ModList[i].GetModFileName() != fileName) { continue; }
             output.push(ModManager.s_ModList[i]);
         }
         return output;
@@ -65,7 +113,7 @@ export class ModManager {
     public static GetModsContainingDisplayName(displayName: string, ignoreCase: boolean = false): Mod[] {
         let output: Mod[] = [];
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            let modDisplayName:string = ModManager.s_ModList[i].DisplayName;
+            let modDisplayName: string = ModManager.s_ModList[i].Title;
             if (ignoreCase) { modDisplayName = modDisplayName.toLowerCase(); }
             if (!modDisplayName.includes(displayName)) { continue; }
             output.push(ModManager.s_ModList[i]);
@@ -76,7 +124,7 @@ export class ModManager {
     public static GetModsContainingFileName(fileName: string, ignoreCase: boolean = false): Mod[] {
         let output: Mod[] = [];
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            let modFileName:string = ModManager.s_ModList[i].FileName;
+            let modFileName: string = ModManager.s_ModList[i].GetModFileName();
             if (ignoreCase) { modFileName = modFileName.toLowerCase(); }
             if (!modFileName.includes(fileName)) { continue; }
             output.push(ModManager.s_ModList[i]);

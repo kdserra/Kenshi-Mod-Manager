@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import { ModManager } from "./ModManager";
 import { Mod } from "./Mod";
 import { ModIOManager } from "./ModIOManager";
@@ -9,6 +9,10 @@ electronReload(__dirname, {});
 
 const createWindow = () => {
   const win = new BrowserWindow({
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
     autoHideMenuBar: false,
     width: 1015,
     height: 1015,
@@ -20,7 +24,7 @@ const createWindow = () => {
 
   win.loadFile(path.join(__dirname, "public", "main.html"));
   const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
-  ModManager.AddMods(mods);
+  ModManager.SetMods(mods);
 };
 
 app.whenReady().then(() => {
@@ -33,4 +37,22 @@ app.whenReady().then(() => {
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
+});
+
+ipcMain.on("saveToKenshiBtnClick", () => {
+  console.log("saveToKenshiBtnClick");
+  const mods: Mod[] = ModManager.GetActiveMods();
+  ModIOManager.SaveModsToKenshi(mods);
+});
+
+ipcMain.on("orderModsBtnClick", () => {
+  console.log("orderModsBtnClick");
+  const mods: Mod[] = ModManager.OrderMods(ModManager.GetAllMods());
+  ModManager.SetMods(mods);
+});
+
+ipcMain.on("refreshBtnClick", () => {
+  console.log("refreshBtnClick");
+  const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
+  ModManager.SetMods(mods);
 });

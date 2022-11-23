@@ -14,7 +14,7 @@ export class Utilities {
         const dir: string = encodeURI(path.dirname(str));
         const fileName: string = encodeURIComponent(path.basename(str));
         const url: string = path.join(dir, fileName);
-        const encodedURL:string = Utilities.EncodeHTMLEntity(url.replace(/\\/g, '\\\\'));
+        const encodedURL: string = Utilities.EncodeHTMLEntity(url.replace(/\\/g, '\\\\'));
         return encodedURL;
     }
 
@@ -32,6 +32,24 @@ export class Utilities {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
         return result;
+    }
+
+    public static MatchFirst(str: string, regex: RegExp): string | null {
+        const matchArray: RegExpMatchArray | null = str.match(regex);
+        if (matchArray === null) { return null; }
+        const output:string = matchArray[0].toString();
+        return output;
+    }
+
+    public static Match(str: string, regex: RegExp): string[] | null {
+        const matchArray: RegExpMatchArray | null = str.match(regex);
+        if (matchArray === null) { return null; }
+        const output:string[] = [];
+        for (let i = 0; i < matchArray.length; i++)
+        {
+            output.push(matchArray[i].toString());
+        }
+        return output;
     }
 
     public static WriteFile(fileName: string, data: string) {
