@@ -139,7 +139,7 @@ export class ModManager {
     public static GetActiveMods(): Mod[] {
         let activeMods: Mod[] = [];
         for (let i = 0; i < ModManager.s_ModList.length; i++) {
-            if (!ModManager.s_ModList[i].Active) { continue; }
+            if (ModManager.s_ModList[i].Active === false) { continue; }
             activeMods.push(ModManager.s_ModList[i]);
         }
         return activeMods;

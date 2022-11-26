@@ -15,12 +15,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css
       " />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="MainPage.css" />
     <script>
       const { ipcRenderer } = require("electron");
       document.addEventListener('DOMContentLoaded', (event) => {
-        document?.getElementById("save-to-kenshi-btn")?.addEventListener("click", () => {
-          ipcRenderer?.send("saveToKenshiBtnClick");
+        document?.getElementById("settings-btn")?.addEventListener("click", () => {
+          ipcRenderer?.send("settingsBtnClick");
+        });
+        document?.getElementById("new-profile-btn")?.addEventListener("click", () => {
+          ipcRenderer?.send("newProfileBtnClick");
+        });
+        document?.getElementById("save-profile-btn")?.addEventListener("click", () => {
+          ipcRenderer?.send("saveProfileBtnClick");
+        });
+        document?.getElementById("open-profile-btn")?.addEventListener("click", () => {
+          ipcRenderer?.send("openProfileBtnClick");
         });
         document?.getElementById("order-mods-btn")?.addEventListener("click", () => {
           ipcRenderer?.send("orderModsBtnClick");
@@ -34,11 +43,11 @@
 
   <body class="mt-3 mb-3">
     <div>
-      <button type="button" class="btn btn-dark border border-0 settings-button" data-bs-toggle="tooltip"
+      <button id="settings-btn" type="button" class="btn btn-dark border border-0 settings-button" data-bs-toggle="tooltip"
         data-bs-placement="bottom" data-bs-title="Tooltip on bottom"></button>
-      <button type="button" class="btn btn-dark border border-0 new-profile-button"></button>
-      <button type="button" class="btn btn-dark border border-0 save-profile-button"></button>
-      <button type="button" class="btn btn-dark border border-0 open-profile-button"></button>
+      <button id="new-profile-btn" type="button" class="btn btn-dark border border-0 new-profile-button"></button>
+      <button id="save-profile-btn" type="button" class="btn btn-dark border border-0 save-profile-button"></button>
+      <button id="open-profile-btn" type="button" class="btn btn-dark border border-0 open-profile-button"></button>
       <input type="text" class="align-middle align-right input rounded border-0" placeholder="Search..."
         style="outline: 0px; vertical-align: top; font-size: larger; background-color: var(--primary-grey-color); color: var(--focus-color); width:300px; height: 40px;">
       </td>

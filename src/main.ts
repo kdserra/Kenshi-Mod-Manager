@@ -22,8 +22,8 @@ const createWindow = () => {
     resizable: true,
   });
 
-  win.loadFile(path.join(__dirname, "public", "main.html"));
-  const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
+  win.loadFile(path.join(__dirname, "public", "pages", "MainPage", "MainPage.html"));
+  const mods: Mod[] = ModIOManager.GetAllModsFromDisk();
   ModManager.SetMods(mods);
 };
 
@@ -39,10 +39,44 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
+ipcMain.on("settingsBtnClick", () => {
+  console.log("settingsBtnClick");
+  const createSettingsWindow = () => {
+    const win = new BrowserWindow({
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: false,
+      },
+      autoHideMenuBar: true,
+      width: 300,
+      height: 300,
+      minWidth: 300,
+      minHeight: 300,
+      title: "Kenshi Mod Manager [Settings]",
+      resizable: true,
+    });
+    
+    win.loadFile(path.join(__dirname, "public", "pages", "SettingsPage", "SettingsPage.html"));
+  };
+
+  createSettingsWindow();
+});
+
+ipcMain.on("newProfileBtnClick", () => {
+  console.log("newProfileBtnClick");
+});
+
+ipcMain.on("saveProfileBtnClick", () => {
+  console.log("saveProfileBtnClick");
+});
+
+ipcMain.on("openProfileBtnClick", () => {
+  console.log("openProfileBtnClick");
+});
+
 ipcMain.on("saveToKenshiBtnClick", () => {
   console.log("saveToKenshiBtnClick");
-  const mods: Mod[] = ModManager.GetActiveMods();
-  ModIOManager.SaveModsToKenshi(mods);
+  ModIOManager.SaveModsToKenshiModConfig(ModManager.GetActiveMods());
 });
 
 ipcMain.on("orderModsBtnClick", () => {
@@ -53,6 +87,6 @@ ipcMain.on("orderModsBtnClick", () => {
 
 ipcMain.on("refreshBtnClick", () => {
   console.log("refreshBtnClick");
-  const mods: Mod[] = ModIOManager.GetAllModsFromDisk([ModIOManager.DEFAULT_STEAM_MODS_ABSOLUTE_DIRECTORY]);
+  const mods: Mod[] = ModIOManager.GetAllModsFromDisk();
   ModManager.SetMods(mods);
 });

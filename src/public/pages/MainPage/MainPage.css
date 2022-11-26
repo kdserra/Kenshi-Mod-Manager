@@ -1,0 +1,86 @@
+.prevent-select {
+  user-select: none;
+}
+
+.settings-button {
+  background-image: url("../../../../assets/settings-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--primary-grey-color);
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.new-profile-button {
+  background-image: url("../../../../assets/plus-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--primary-grey-color);
+  width: 40px;
+  height: 40px;
+}
+
+.save-profile-button {
+  background-image: url("../../../../assets/save-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--primary-grey-color);
+  width: 40px;
+  height: 40px;
+}
+
+.open-profile-button {
+  background-image: url("../../../../assets/open-icon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: var(--primary-grey-color);
+  width: 40px;
+  height: 40px;
+}
+
+.save-to-kenshi-button {
+  width: 144px;
+  height: 40px;
+  color: var(--unfocused-color);
+  background-color: var(--primary-grey-color);
+  bottom: 0;
+}
+
+.order-mods-button {
+  width: 144px;
+  height: 40px;
+  color: var(--unfocused-color);
+  background-color: var(--primary-grey-color);
+  bottom: 0;
+}
+
+.refresh-button {
+  width: 144px;
+  height: 40px;
+  color: var(--unfocused-color);
+  background-color: var(--primary-grey-color);
+  bottom: 0;
+}
+
+.background-color {
+  background-color: var(--non-primary-grey-color);
+}
+
+.custom-scrollbar {
+  position: relative;
+  height: 75vmin;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+:root {
+  --bs-body-bg: var(--non-primary-grey-color);
+  --focus-color: rgb(242, 242, 242);
+  --unfocused-color: rgb(151, 151, 151);
+  --primary-grey-color: rgb(51, 51, 51);
+  --non-primary-grey-color: rgb(25, 25, 25);
+}

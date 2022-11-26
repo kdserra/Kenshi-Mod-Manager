@@ -34,16 +34,16 @@ export class Utilities {
         return result;
     }
 
-    public static MatchFirst(str: string, regex: RegExp): string | null {
+    public static MatchFirmFirst(str: string, regex: RegExp): string {
         const matchArray: RegExpMatchArray | null = str.match(regex);
-        if (matchArray === null) { return null; }
+        if (matchArray === null) { return ""; }
         const output:string = matchArray[0].toString();
         return output;
     }
 
-    public static Match(str: string, regex: RegExp): string[] | null {
+    public static MatchFirm(str: string, regex: RegExp): string[] {
         const matchArray: RegExpMatchArray | null = str.match(regex);
-        if (matchArray === null) { return null; }
+        if (matchArray === null) { return []; }
         const output:string[] = [];
         for (let i = 0; i < matchArray.length; i++)
         {

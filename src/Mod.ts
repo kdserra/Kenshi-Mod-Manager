@@ -3,6 +3,7 @@ import { Guid } from "./Guid";
 import { Tag } from "./Tag";
 
 export class Mod {
+  public readonly Name: string;
   public readonly Title: string;
   public readonly ModFilePath: string;
   public readonly InfoFilePath: string;
@@ -13,12 +14,14 @@ export class Mod {
   public Active: boolean = false;
 
   constructor(
+    name: string,
     title: string,
     modFilePath: string,
     infoFilePath: string,
     imageFilePath: string,
     tags: Tag[]
   ) {
+    this.Name = name;
     this.Title = title;
     this.ModFilePath = modFilePath;
     this.InfoFilePath = infoFilePath;
@@ -26,6 +29,7 @@ export class Mod {
     this.Tags = tags;
     this.Guid = Guid.New();
   }
+
 
   public GetModFileName(): string {
     return path.basename(this.ModFilePath);

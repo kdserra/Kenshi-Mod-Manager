@@ -68,7 +68,6 @@ export class ModTableManager {
           ipcRenderer?.send("modTableEntryInputClick", "${mod.Guid}");
         });`
       ).catch();
-      break;
     }
   }
 

@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/electron": "^1.6.10",
     "@types/node": "^18.11.9",
+    "@types/proper-lockfile": "^4.1.2",
     "concurrently": "^7.4.0",
     "electron": "^21.2.0",
     "electron-builder": "^23.6.0",
@@ -59,6 +60,7 @@
   },
   "dependencies": {
     "electron-reload": "^2.0.0-alpha.1",
+    "proper-lockfile": "^4.1.2",
     "ts-node": "^10.9.1"
   }
 }
