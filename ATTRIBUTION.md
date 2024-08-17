@@ -1,5 +1,8 @@
 # Attribution
 
+Inspired by millerscout's Kenshi-Mod-Manager
+https://github.com/millerscout/Kenshi-Mod-Manager
+
 - [open by DigitalShards Five from Noun Project](https://thenounproject.com/icon/open-1904155/) ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/))
 
  Changes made: Resized to 100x100, changed color, removed text, aligned to
